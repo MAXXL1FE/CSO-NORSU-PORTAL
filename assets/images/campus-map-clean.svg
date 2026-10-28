@@ -1,0 +1,166 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1108 1085" role="img" aria-labelledby="t d" font-family="Segoe UI, Roboto, Helvetica, Arial, sans-serif">
+<title id="t">NORSU Main Campus 1 guide map</title><desc id="d">Simplified, color-coded map of the Negros Oriental State University Main Campus 1 in Dumaguete City showing colleges, offices, sports areas, facilities and gates.</desc>
+<defs>
+<style>
+.lb{font-weight:700;fill:#14221a;paint-order:stroke;stroke:#fff;stroke-width:3.5px;stroke-linejoin:round;text-anchor:middle}
+.b{stroke:#2d3b33;stroke-width:1.6;stroke-linejoin:round}
+.gate{fill:#14532d}
+.gt{font-size:14px;font-weight:700;fill:#fff;text-anchor:middle}
+</style>
+<filter id="sh" x="-5%" y="-5%" width="110%" height="110%"><feDropShadow dx="0" dy="2" stdDeviation="2" flood-opacity=".18"/></filter>
+</defs>
+<rect width="1108" height="1085" fill="#f6f7f2"/>
+<text x="554" y="38" text-anchor="middle" font-size="30" font-weight="800" fill="#14532d">NORSU Main Campus 1 Guide Map</text>
+<text x="554" y="62" text-anchor="middle" font-size="16" fill="#4b5a52">Negros Oriental State University &#183; Dumaguete City</text>
+<polygon points="118,88 232,80 405,80 528,400 528,556 992,552 996,1012 980,1034 300,1050 95,1030 88,270" fill="#e3e9e5" stroke="#9fb0a6" stroke-width="3" filter="url(#sh)"/>
+<polyline points="205,92 205,420 250,432 292,690 300,1030" fill="none" stroke="#fff" stroke-width="9" stroke-linecap="round" stroke-linejoin="round"/>
+<polyline points="342,140 342,432 452,602 452,900" fill="none" stroke="#fff" stroke-width="9" stroke-linecap="round" stroke-linejoin="round"/>
+<polyline points="96,692 300,692" fill="none" stroke="#fff" stroke-width="9" stroke-linecap="round" stroke-linejoin="round"/>
+<polyline points="300,892 600,892" fill="none" stroke="#fff" stroke-width="9" stroke-linecap="round" stroke-linejoin="round"/>
+<polyline points="300,640 452,640" fill="none" stroke="#fff" stroke-width="9" stroke-linecap="round" stroke-linejoin="round"/>
+<polyline points="528,640 990,640" fill="none" stroke="#fff" stroke-width="9" stroke-linecap="round" stroke-linejoin="round"/>
+<polyline points="590,642 590,890" fill="none" stroke="#fff" stroke-width="9" stroke-linecap="round" stroke-linejoin="round"/>
+<polyline points="755,640 755,890" fill="none" stroke="#fff" stroke-width="9" stroke-linecap="round" stroke-linejoin="round"/>
+<polyline points="600,1000 990,1000" fill="none" stroke="#fff" stroke-width="9" stroke-linecap="round" stroke-linejoin="round"/>
+<polygon points="183,118 215,120 218,382 192,380" fill="#bcd9ee" stroke="#7fa6c4" stroke-width="1.2"/>
+<polygon points="212,418 245,418 248,648 214,650" fill="#bcd9ee" stroke="#7fa6c4" stroke-width="1.2"/>
+<polygon points="252,712 298,712 298,930 254,932" fill="#bcd9ee" stroke="#7fa6c4" stroke-width="1.2"/>
+<polygon class="b" points="236,92 392,90 466,305 430,308 337,140 236,140" fill="#9fd3f7"/>
+<polygon class="b" points="140,130 168,110 195,382 163,394" fill="#9fd3f7"/>
+<polygon class="b" points="362,258 398,258 398,294 362,294" fill="#d9bdf2"/>
+<polygon class="b" points="246,236 346,236 346,292 246,292" fill="#9fd3f7"/>
+<polygon class="b" points="242,296 362,276 364,456 424,602 421,668 300,680 268,472 244,458" fill="#9fd3f7"/>
+<polygon class="b" points="418,314 486,314 486,372 418,372" fill="#f8c98a"/>
+<polygon class="b" points="440,374 486,374 486,402 440,402" fill="#f8c98a"/>
+<polygon class="b" points="378,440 446,440 446,512 378,512" fill="#a9dca0"/>
+<polygon class="b" points="380,536 452,536 452,574 380,574" fill="#d9bdf2"/>
+<polygon class="b" points="446,402 500,396 520,610 462,614" fill="#d9bdf2"/>
+<polygon class="b" points="140,428 232,428 234,660 142,660" fill="#9fd3f7"/>
+<polygon class="b" points="180,724 272,724 272,972 180,972" fill="#f8c98a"/>
+<polygon class="b" points="302,706 388,706 388,812 302,812" fill="#9fd3f7"/>
+<polygon class="b" points="390,698 440,698 440,764 390,764" fill="#f8c98a"/>
+<polygon class="b" points="398,782 450,782 450,888 398,888" fill="#f8c98a"/>
+<polygon class="b" points="312,820 398,820 398,912 312,912" fill="#9fd3f7"/>
+<polygon class="b" points="500,592 656,592 656,646 500,646" fill="#9fd3f7"/>
+<polygon class="b" points="462,634 500,634 500,664 462,664" fill="#d9bdf2"/>
+<polygon class="b" points="656,568 776,568 776,642 656,642" fill="#9fd3f7"/>
+<polygon class="b" points="778,554 926,554 926,634 778,634" fill="#9fd3f7"/>
+<polygon class="b" points="930,546 990,546 990,600 930,600" fill="#d9bdf2"/>
+<polygon class="b" points="474,696 590,696 590,882 474,882" fill="#a9dca0"/>
+<polygon class="b" points="604,672 752,672 752,886 604,886" fill="#a9dca0"/>
+<polygon class="b" points="590,672 604,672 604,886 590,886" fill="#f8c98a"/>
+<polygon class="b" points="754,798 786,798 786,838 754,838" fill="#f8c98a"/>
+<polygon class="b" points="488,884 566,884 566,898 488,898" fill="#d9bdf2"/>
+<polygon class="b" points="752,662 886,662 886,758 752,758" fill="#a9dca0"/>
+<polygon class="b" points="790,790 896,790 896,852 790,852" fill="#d9bdf2"/>
+<polygon class="b" points="898,612 990,612 990,872 898,872" fill="#9fd3f7"/>
+<polygon class="b" points="718,890 920,890 920,948 718,948" fill="#9fd3f7"/>
+<polygon class="b" points="602,894 706,894 706,948 602,948" fill="#f8c98a"/>
+<polygon class="b" points="320,900 600,900 600,988 320,988" fill="#9fd3f7"/>
+<rect x="248" y="148" width="108" height="66" rx="12" fill="#cfe8c4" stroke="#9cc58f"/>
+<rect x="384" y="446" width="56" height="60" stroke="#fff" stroke-width="1.6" fill="none" opacity=".9"/><line x1="384" y1="476" x2="440" y2="476" stroke="#fff" stroke-width="1.6" fill="none" opacity=".9"/><line x1="412" y1="446" x2="412" y2="506" stroke="#fff" stroke-width="1.6" fill="none" opacity=".9"/>
+<rect x="482" y="716" width="90" height="156" stroke="#fff" stroke-width="1.6" fill="none" opacity=".9"/><line x1="482" y1="794" x2="572" y2="794" stroke="#fff" stroke-width="1.6" fill="none" opacity=".9"/><circle cx="527" cy="794" r="15" stroke="#fff" stroke-width="1.6" fill="none" opacity=".9"/><rect x="508" y="716" width="38" height="34" stroke="#fff" stroke-width="1.6" fill="none" opacity=".9"/><rect x="508" y="838" width="38" height="34" stroke="#fff" stroke-width="1.6" fill="none" opacity=".9"/><path d="M508,750 a19,19 0 0 0 38,0" stroke="#fff" stroke-width="1.6" fill="none" opacity=".9"/><path d="M508,838 a19,19 0 0 1 38,0" stroke="#fff" stroke-width="1.6" fill="none" opacity=".9"/>
+<rect x="618" y="696" width="120" height="150" rx="6" fill="#f3e2b8" stroke="#b58b3a" stroke-width="1.4"/><line x1="618" y1="771" x2="738" y2="771" stroke="#b58b3a" stroke-width="1.2"/><circle cx="678" cy="771" r="16" fill="none" stroke="#b58b3a" stroke-width="1.2"/><rect x="646" y="852" width="64" height="24" rx="4" fill="#c9a45a" stroke="#8a6a24" stroke-width="1.2"/><text x="678" y="868" text-anchor="middle" font-size="10" font-weight="700" fill="#fff">STAGE</text>
+<path d="M801,664 a18,18 0 0 0 36,0Z" fill="#e8d7a8" stroke="#8a6a24" stroke-width="1.2"/>
+<path d="M791,664 a28,28 0 0 0 56,0" fill="none" stroke="#5c9a56" stroke-width="2.2"/>
+<path d="M779,664 a40,40 0 0 0 80,0" fill="none" stroke="#5c9a56" stroke-width="2.2"/>
+<path d="M767,664 a52,52 0 0 0 104,0" fill="none" stroke="#5c9a56" stroke-width="2.2"/>
+<path d="M755,664 a64,64 0 0 0 128,0" fill="none" stroke="#5c9a56" stroke-width="2.2"/>
+<rect x="802" y="800" width="82" height="42" rx="6" fill="none" stroke="#fff" stroke-width="1.6" opacity=".8"/>
+<line x1="337" y1="140" x2="392" y2="92" stroke="#fff" stroke-width="1.4" opacity=".6"/><line x1="300" y1="680" x2="364" y2="470" stroke="#fff" stroke-width="1.4" opacity=".55"/>
+<text x="590" y="1064" text-anchor="middle" font-size="10" font-weight="700" fill="#14532d">ENTRANCE &#8595;</text><text x="722" y="1064" text-anchor="middle" font-size="10" font-weight="700" fill="#14532d">&#8593; EXIT</text>
+<text transform="rotate(-83 200 250)" x="200" y="253" text-anchor="middle" font-size="10" font-weight="700" fill="#1f4e79">Student Lounge</text>
+<text class="lb" x="312" y="112" font-size="17"><tspan x="312" dy="0.0">College of Teacher</tspan><tspan x="312" dy="19.5">Education</tspan></text>
+<g transform="rotate(-83 166 254)">
+<text class="lb" x="166" y="260" font-size="17"><tspan x="166" dy="0.0">College of Law</tspan></text>
+</g>
+<text class="lb" x="380" y="274" font-size="11"><tspan x="380" dy="0.0">CTED</tspan><tspan x="380" dy="12.6">CR</tspan></text>
+<text class="lb" x="296" y="268" font-size="12"><tspan x="296" dy="0.0">Annex</tspan></text>
+<text class="lb" x="336" y="528" font-size="15"><tspan x="336" dy="0.0">College of</tspan><tspan x="336" dy="17.2">Industrial</tspan><tspan x="336" dy="17.2">Technology</tspan></text>
+<text class="lb" x="452" y="340" font-size="12"><tspan x="452" dy="0.0">Care</tspan><tspan x="452" dy="13.8">Center</tspan></text>
+<text class="lb" x="463" y="392" font-size="11"><tspan x="463" dy="0.0">Student Affairs</tspan></text>
+<text class="lb" x="412" y="474" font-size="11"><tspan x="412" dy="0.0">CIT Open</tspan><tspan x="412" dy="12.6">Court</tspan></text>
+<text class="lb" x="416" y="559" font-size="11"><tspan x="416" dy="0.0">CIT Canteen</tspan></text>
+<g transform="rotate(-90 482 506)">
+<text class="lb" x="482" y="503" font-size="12"><tspan x="482" dy="0.0">Supply</tspan><tspan x="482" dy="13.8">Room</tspan></text>
+</g>
+<g transform="rotate(-90 187 544)">
+<text class="lb" x="187" y="540" font-size="17"><tspan x="187" dy="0.0">Science &amp; Technology</tspan><tspan x="187" dy="19.5">Building</tspan></text>
+</g>
+<g transform="rotate(-90 226 848)">
+<text class="lb" x="226" y="844" font-size="16"><tspan x="226" dy="0.0">University Registrar</tspan><tspan x="226" dy="18.4">&amp; Cashier</tspan></text>
+</g>
+<text class="lb" x="345" y="756" font-size="14"><tspan x="345" dy="0.0">CIT</tspan><tspan x="345" dy="16.1">Building</tspan></text>
+<text class="lb" x="415" y="736" font-size="14"><tspan x="415" dy="0.0">Clinic</tspan></text>
+<text class="lb" x="424" y="833" font-size="11"><tspan x="424" dy="0.0">Research &amp;</tspan><tspan x="424" dy="12.6">Extension</tspan></text>
+<text class="lb" x="355" y="870" font-size="12"><tspan x="355" dy="0.0">Annex</tspan></text>
+<text class="lb" x="578" y="625" font-size="16"><tspan x="578" dy="0.0">Automotive Building</tspan></text>
+<text class="lb" x="481" y="653" font-size="11"><tspan x="481" dy="0.0">Bus Shed</tspan></text>
+<text class="lb" x="716" y="602" font-size="13"><tspan x="716" dy="0.0">Physical Education</tspan><tspan x="716" dy="14.9">Dept.</tspan></text>
+<text class="lb" x="852" y="584" font-size="13"><tspan x="852" dy="0.0">College of Nursing,</tspan><tspan x="852" dy="14.9">Pharmacy &amp; Allied</tspan><tspan x="852" dy="14.9">Health Sciences</tspan></text>
+<text class="lb" x="960" y="578" font-size="15"><tspan x="960" dy="0.0">AVR</tspan></text>
+<text class="lb" x="532" y="740" font-size="17"><tspan x="532" dy="0.0">Open Court</tspan></text>
+<text class="lb" x="678" y="746" font-size="18"><tspan x="678" dy="0.0">NORSU Cultural</tspan><tspan x="678" dy="20.7">Center</tspan><tspan x="678" dy="20.7">(Gym)</tspan></text>
+<g transform="rotate(-90 597 779)">
+<text class="lb" x="597" y="783" font-size="11"><tspan x="597" dy="0.0">Math &amp; Social Science Dept.</tspan></text>
+</g>
+<text class="lb" x="770" y="816" font-size="11"><tspan x="770" dy="0.0">Tech</tspan><tspan x="770" dy="12.6">Room</tspan></text>
+<text class="lb" x="527" y="895" font-size="11"><tspan x="527" dy="0.0">CAS Student Lounge</tspan></text>
+<text class="lb" x="819" y="743" font-size="15"><tspan x="819" dy="0.0">Amphi Theater</tspan></text>
+<text class="lb" x="843" y="826" font-size="15"><tspan x="843" dy="0.0">Interfaith</tspan></text>
+<g transform="rotate(-90 944 742)">
+<text class="lb" x="944" y="738" font-size="17"><tspan x="944" dy="0.0">College of Business</tspan><tspan x="944" dy="19.5">Administration</tspan></text>
+</g>
+<text class="lb" x="819" y="916" font-size="14"><tspan x="819" dy="0.0">Hospitality Management</tspan><tspan x="819" dy="16.1">&amp; Tourism Building</tspan></text>
+<text class="lb" x="654" y="918" font-size="15"><tspan x="654" dy="0.0">Admin</tspan><tspan x="654" dy="17.2">Building</tspan></text>
+<text class="lb" x="460" y="951" font-size="19"><tspan x="460" dy="0.0">College of Arts and Sciences</tspan></text>
+<rect x="342" y="1010" width="22" height="16" rx="3" fill="#d98b8b" stroke="#a45a5a"/>
+<rect x="436" y="1006" width="22" height="16" rx="3" fill="#d98b8b" stroke="#a45a5a"/>
+<rect x="520" y="1000" width="22" height="16" rx="3" fill="#d98b8b" stroke="#a45a5a"/>
+<rect x="860" y="955" width="22" height="16" rx="3" fill="#d98b8b" stroke="#a45a5a"/>
+<rect x="905" y="990" width="22" height="16" rx="3" fill="#d98b8b" stroke="#a45a5a"/>
+<circle cx="262" cy="164" r="8" fill="#5a9a66" stroke="#2f6b3b" stroke-width="1.2" opacity=".9"/>
+<circle cx="300" cy="164" r="8" fill="#5a9a66" stroke="#2f6b3b" stroke-width="1.2" opacity=".9"/>
+<circle cx="330" cy="164" r="8" fill="#5a9a66" stroke="#2f6b3b" stroke-width="1.2" opacity=".9"/>
+<circle cx="262" cy="200" r="8" fill="#5a9a66" stroke="#2f6b3b" stroke-width="1.2" opacity=".9"/>
+<circle cx="300" cy="200" r="8" fill="#5a9a66" stroke="#2f6b3b" stroke-width="1.2" opacity=".9"/>
+<circle cx="330" cy="200" r="8" fill="#5a9a66" stroke="#2f6b3b" stroke-width="1.2" opacity=".9"/>
+<circle cx="120" cy="300" r="8" fill="#5a9a66" stroke="#2f6b3b" stroke-width="1.2" opacity=".9"/>
+<circle cx="112" cy="360" r="8" fill="#5a9a66" stroke="#2f6b3b" stroke-width="1.2" opacity=".9"/>
+<circle cx="118" cy="420" r="8" fill="#5a9a66" stroke="#2f6b3b" stroke-width="1.2" opacity=".9"/>
+<circle cx="250" cy="470" r="8" fill="#5a9a66" stroke="#2f6b3b" stroke-width="1.2" opacity=".9"/>
+<circle cx="256" cy="520" r="8" fill="#5a9a66" stroke="#2f6b3b" stroke-width="1.2" opacity=".9"/>
+<circle cx="258" cy="570" r="8" fill="#5a9a66" stroke="#2f6b3b" stroke-width="1.2" opacity=".9"/>
+<circle cx="258" cy="625" r="8" fill="#5a9a66" stroke="#2f6b3b" stroke-width="1.2" opacity=".9"/>
+<circle cx="130" cy="670" r="8" fill="#5a9a66" stroke="#2f6b3b" stroke-width="1.2" opacity=".9"/>
+<circle cx="284" cy="760" r="8" fill="#5a9a66" stroke="#2f6b3b" stroke-width="1.2" opacity=".9"/>
+<circle cx="286" cy="820" r="8" fill="#5a9a66" stroke="#2f6b3b" stroke-width="1.2" opacity=".9"/>
+<circle cx="286" cy="880" r="8" fill="#5a9a66" stroke="#2f6b3b" stroke-width="1.2" opacity=".9"/>
+<circle cx="240" cy="1010" r="8" fill="#5a9a66" stroke="#2f6b3b" stroke-width="1.2" opacity=".9"/>
+<circle cx="508" cy="572" r="8" fill="#5a9a66" stroke="#2f6b3b" stroke-width="1.2" opacity=".9"/>
+<circle cx="560" cy="572" r="8" fill="#5a9a66" stroke="#2f6b3b" stroke-width="1.2" opacity=".9"/>
+<circle cx="500" cy="676" r="8" fill="#5a9a66" stroke="#2f6b3b" stroke-width="1.2" opacity=".9"/>
+<circle cx="528" cy="676" r="8" fill="#5a9a66" stroke="#2f6b3b" stroke-width="1.2" opacity=".9"/>
+<circle cx="556" cy="676" r="8" fill="#5a9a66" stroke="#2f6b3b" stroke-width="1.2" opacity=".9"/>
+<circle cx="470" cy="896" r="8" fill="#5a9a66" stroke="#2f6b3b" stroke-width="1.2" opacity=".9"/>
+<circle cx="560" cy="1012" r="8" fill="#5a9a66" stroke="#2f6b3b" stroke-width="1.2" opacity=".9"/>
+<circle cx="596" cy="1012" r="8" fill="#5a9a66" stroke="#2f6b3b" stroke-width="1.2" opacity=".9"/>
+<circle cx="850" cy="968" r="8" fill="#5a9a66" stroke="#2f6b3b" stroke-width="1.2" opacity=".9"/>
+<circle cx="822" cy="972" r="8" fill="#5a9a66" stroke="#2f6b3b" stroke-width="1.2" opacity=".9"/>
+<circle cx="1000" cy="620" r="8" fill="#5a9a66" stroke="#2f6b3b" stroke-width="1.2" opacity=".9"/>
+<circle cx="1002" cy="700" r="8" fill="#5a9a66" stroke="#2f6b3b" stroke-width="1.2" opacity=".9"/>
+<circle cx="1002" cy="770" r="8" fill="#5a9a66" stroke="#2f6b3b" stroke-width="1.2" opacity=".9"/>
+<circle cx="1002" cy="840" r="8" fill="#5a9a66" stroke="#2f6b3b" stroke-width="1.2" opacity=".9"/>
+<circle cx="1002" cy="900" r="8" fill="#5a9a66" stroke="#2f6b3b" stroke-width="1.2" opacity=".9"/>
+<rect class="gate" x="114.0" y="62" width="72" height="26" rx="13"/><text class="gt" x="150" y="81">GATE 3</text>
+<rect class="gate" x="64.0" y="686" width="72" height="26" rx="13"/><text class="gt" x="100" y="705">GATE 2</text>
+<rect class="gate" x="884.0" y="1008" width="72" height="26" rx="13"/><text class="gt" x="920" y="1027">GATE 4</text>
+<rect class="gate" x="605.5" y="1020" width="99" height="26" rx="13"/><text class="gt" x="655" y="1039">MAIN GATE</text>
+<g transform="translate(668 700)"><circle r="13" fill="#d4a017" stroke="#fff" stroke-width="2.5"/><path d="M0,-8 L2.3,-2.6 8,-2.2 3.6,1.6 5,7.2 0,4.2 -5,7.2 -3.6,1.6 -8,-2.2 -2.3,-2.6Z" fill="#fff"/></g>
+<g transform="translate(819 676)"><circle r="13" fill="#d4a017" stroke="#fff" stroke-width="2.5"/><path d="M0,-8 L2.3,-2.6 8,-2.2 3.6,1.6 5,7.2 0,4.2 -5,7.2 -3.6,1.6 -8,-2.2 -2.3,-2.6Z" fill="#fff"/></g>
+<g transform="translate(984 552)"><circle r="13" fill="#d4a017" stroke="#fff" stroke-width="2.5"/><path d="M0,-8 L2.3,-2.6 8,-2.2 3.6,1.6 5,7.2 0,4.2 -5,7.2 -3.6,1.6 -8,-2.2 -2.3,-2.6Z" fill="#fff"/></g>
+<g transform="translate(532 712)"><circle r="13" fill="#d4a017" stroke="#fff" stroke-width="2.5"/><path d="M0,-8 L2.3,-2.6 8,-2.2 3.6,1.6 5,7.2 0,4.2 -5,7.2 -3.6,1.6 -8,-2.2 -2.3,-2.6Z" fill="#fff"/></g>
+<g transform="translate(1040 120)"><circle r="34" fill="#fff" stroke="#9fb0a6" stroke-width="2"/><path d="M0,-26 L8,6 0,0 -8,6Z" fill="#14532d"/><text y="-38" text-anchor="middle" font-size="15" font-weight="700" fill="#14532d">N</text></g>
+<g transform="translate(790 300)"><text font-size="26" font-weight="800" fill="#14221a">Where to go</text><text y="26" font-size="15" fill="#4b5a52">Tap the map to open the interactive version.</text><text y="48" font-size="15" fill="#4b5a52">Gold stars mark common event venues.</text></g>
+<text x="1068" y="1074" text-anchor="end" font-size="12" fill="#7b887f">Simplified from the MC1 Guide Map &#183; not to scale</text>
+</svg>

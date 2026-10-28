@@ -1,0 +1,887 @@
+/* =====================================================================
+   CSO-NORSU phone app layout.
+   Linked from includes/header.php with media="(max-width: 640px)", so
+   none of this is ever downloaded or applied on tablets and PCs.
+   Look: soft rounded cards, large titles, big tap targets, and a bottom
+   tab bar (see .mtabbar in includes/footer.php). Colors come from the
+   site's own theme variables, so light, dark and accent colors still work.
+   The curriculum page stays box-free (its own rules in ui.css win).
+   ===================================================================== */
+
+html[data-theme] {
+    --m-card: var(--ui-surface-alt, #F6F8F4);
+    --m-radius: 18px;
+    --m-tab-h: 64px;
+}
+
+/* ---------- Page frame ---------- */
+html[data-theme] body:not(#_) { padding-bottom: calc(var(--m-tab-h) + 14px + env(safe-area-inset-bottom, 0px)); -webkit-tap-highlight-color: transparent; }
+html[data-theme] .app-main-inner:not(#_) { padding: 16px 16px 24px; }
+html[data-theme] .container:not(#_) { padding-left: 16px; padding-right: 16px; }
+
+/* ---------- Top bar: compact app header ---------- */
+html[data-theme] .topbar:not(#_) { position: sticky; top: 0; z-index: 50; border-bottom: 0; }
+html[data-theme] .topbar-inner:not(#_) { min-height: 58px; padding-left: 16px; padding-right: 12px; gap: 10px; }
+html[data-theme] .topbar-shortcuts:not(#_), html[data-theme] .topbar-user-name:not(#_), html[data-theme] .brand-text small:not(#_) { display: none; }
+html[data-theme] .brand-text strong:not(#_) { font-size: 1.05rem; font-weight: 800; letter-spacing: -.01em; }
+html[data-theme] .brand-mark:not(#_) { border-radius: 12px; }
+html[data-theme] .topbar-actions:not(#_) { margin-left: auto; gap: 6px; }
+html[data-theme] .search-toggle:not(#_), html[data-theme] .topbar-notif:not(#_), html[data-theme] .user-menu-toggle:not(#_) { width: 42px; height: 42px; border-radius: 14px; background: var(--m-card); border: 0; }
+html[data-theme] .avatar-chip:not(#_) { width: 40px; height: 40px; border-radius: 50%; }
+html[data-theme] .topbar-page:not(#_) { font-weight: 700; font-size: .95rem; }
+
+/* ---------- Titles ---------- */
+html[data-theme] :is(.page-head h1, .section-head h1, .app-main-inner > h1, .container > h1):not(#_) { font-size: 1.65rem; line-height: 1.2; font-weight: 800; letter-spacing: -.02em; }
+html[data-theme] .section-head h2:not(#_) { font-size: 1.15rem; font-weight: 800; }
+html[data-theme] .section-head a:not(#_) { font-size: .88rem; font-weight: 700; }
+html[data-theme] .page-head:not(#_) { margin-bottom: 18px; }
+
+/* ---------- Soft rounded cards (curriculum is left alone) ---------- */
+html[data-theme] :is(.card, .panel, .stat-card, .fbpost, .event-tile, .dir-card, .tile, .side-card, .checkin-card, .edit-panel, .post-card, .officer-card, .mem-card, .faculty-card, .map-detail):not(#_) {
+    background: var(--m-card); border: 0; border-radius: var(--m-radius); box-shadow: none;
+    padding: 14px 16px; margin-bottom: 12px; overflow: hidden;
+}
+html[data-theme] :is(.card, .event-tile, .post-card, .dir-card, .mem-card, .officer-card, .faculty-card):not(#_):hover { background: var(--m-card); border: 0; transform: none; }
+html[data-theme] :is(.card, .event-tile, .post-card):not(#_):active { transform: scale(.99); }
+html[data-theme] :is(.card, .post-card, .event-tile) img:not(#_) { border-radius: 14px; }
+
+/* ---------- Hero: inset rounded banner ---------- */
+html[data-theme] .home-hero:not(#_) { margin: 12px 16px 0; border-radius: 24px; overflow: hidden; min-height: clamp(300px, 52svh, 420px); }
+html[data-theme] .home-hero.page-hero:not(#_) { min-height: clamp(220px, 38svh, 300px); }
+
+/* ---------- Buttons ---------- */
+html[data-theme] .btn:not(#_) { min-height: 48px; padding: 0 20px; border-radius: 14px; font-weight: 700; font-size: .98rem; justify-content: center; }
+html[data-theme] .btn-sm:not(#_) { min-height: 40px; padding: 0 14px; border-radius: 12px; font-size: .88rem; }
+html[data-theme] :is(form .btn-primary, .form .btn, .btn-block):not(#_) { width: 100%; }
+
+/* ---------- Fields (16px stops iOS zoom on focus) ---------- */
+html[data-theme] :is(input:not([type=checkbox]):not([type=radio]):not([type=range]):not([type=file]), select, textarea):not(#_) { min-height: 48px; border-radius: 14px; font-size: 16px; padding-left: 14px; padding-right: 14px; }
+html[data-theme] textarea:not(#_) { padding-top: 12px; }
+
+/* ---------- Lists, badges, alerts ---------- */
+html[data-theme] .badge:not(#_) { border-radius: 999px; padding: 3px 10px; font-size: .74rem; font-weight: 700; }
+html[data-theme] .alert:not(#_), html[data-theme] .flash:not(#_) { border-radius: 14px; }
+html[data-theme] .data-table:not(.curr-table) tbody tr:not(#_) { border-bottom: 1px solid var(--ui-border); }
+
+/* ---------- Log in / Create account: full-screen app sign-in ---------- */
+html[data-theme] body.auth-body:not(#_) { padding-bottom: 0; }
+html[data-theme] .signin-page:not(#_) {
+    display: block; min-height: 100vh; min-height: 100dvh; background: var(--ui-surface);
+    padding: calc(env(safe-area-inset-top, 0px) + 56px) 22px calc(env(safe-area-inset-bottom, 0px) + 28px);
+}
+html[data-theme] .signin-card:not(#_) { max-width: 440px; margin: 0 auto; padding: 0; background: none; border: 0; border-radius: 0; box-shadow: none; }
+html[data-theme] .signin-theme:not(#_) { position: absolute; top: calc(env(safe-area-inset-top, 0px) + 12px); right: 14px; width: 42px; height: 42px; border-radius: 14px; background: var(--m-card); border: 0; }
+
+/* brand: centered logo tile, name and organization */
+html[data-theme] .signin-brand:not(#_) { flex-direction: column; align-items: center; text-align: center; gap: 12px; margin: 0 0 24px; }
+html[data-theme] .signin-logo:not(#_) { width: 96px; height: 96px; padding: 0; border-radius: 0; background: none !important; border: 0; box-shadow: none; object-fit: contain; }
+html[data-theme] .signin-name:not(#_) { font-size: 1.2rem; font-weight: 800; letter-spacing: -.01em; }
+html[data-theme] .signin-org:not(#_) { font-size: .85rem; margin-top: 2px; }
+
+/* heading */
+html[data-theme] .signin-title:not(#_) { text-align: center; font-family: inherit; font-size: 1.7rem; font-weight: 800; letter-spacing: -.02em; margin: 0 0 6px; }
+html[data-theme] .signin-sub:not(#_) { text-align: center; font-size: .95rem; line-height: 1.5; margin: 0 0 26px; }
+
+/* form */
+html[data-theme] .signin-form:not(#_) { gap: 18px; }
+html[data-theme] .signin-field:not(#_) { gap: 8px; }
+html[data-theme] .signin-field label:not(#_), html[data-theme] .signin-card .form-row label:not(#_) { font-size: .88rem; font-weight: 700; }
+html[data-theme] .signin-link:not(#_) { font-size: .85rem; font-weight: 700; }
+html[data-theme] :is(.signin-field input, .signin-card .form-row input, .signin-card .form-row select):not(#_) {
+    height: 54px; min-height: 54px; padding: 0 16px; border-radius: 14px; font-size: 16px; background: var(--ui-surface-alt);
+}
+html[data-theme] .signin-card .form-row:not(#_) { margin-bottom: 16px; }
+html[data-theme] :is(.signin-field input, .signin-card .form-row input, .signin-card .form-row select):focus:not(#_) { background: var(--ui-surface); border-color: var(--ui-accent); box-shadow: var(--ui-focus); outline: 0; }
+html[data-theme] .pw-wrap input:not(#_) { padding-right: 56px; }
+html[data-theme] .pw-wrap .pw-toggle:not(#_) { position: absolute; top: 50%; bottom: auto; right: 6px; transform: translateY(-50%); width: 44px; height: 44px; min-width: 44px; min-height: 44px; margin: 0; padding: 0; display: grid; place-items: center; border-radius: 12px; }
+html[data-theme] .pw-wrap .pw-toggle .icon:not(#_) { width: 20px; height: 20px; }
+
+/* buttons */
+html[data-theme] .signin-card .btn:not(#_) { width: 100%; min-height: 54px; border-radius: 14px; font-size: 1rem; font-weight: 700; }
+html[data-theme] .signin-card .btn-primary:not(#_) { margin-top: 4px; }
+html[data-theme] .signin-divider:not(#_) { margin: 26px 0 16px; font-size: .84rem; }
+
+/* footer links: stacked and easy to tap */
+html[data-theme] .signin-foot:not(#_) { flex-direction: column; align-items: center; gap: 2px; margin-top: 22px; }
+html[data-theme] .signin-foot > span:not(#_) { display: none; }
+html[data-theme] .signin-foot a:not(#_) { display: flex; align-items: center; min-height: 40px; font-size: .9rem; font-weight: 600; }
+html[data-theme] .signin-card .form-footnote:not(#_) { margin-top: 16px; }
+@media (max-height: 640px) {
+    html[data-theme] .signin-page:not(#_) { padding-top: calc(env(safe-area-inset-top, 0px) + 40px); }
+    html[data-theme] .signin-brand:not(#_) { margin-bottom: 16px; }
+    html[data-theme] .signin-logo:not(#_) { width: 72px; height: 72px; }
+}
+
+/* ---------- Bottom tab bar ---------- */
+html[data-theme] .mtabbar:not(#_) {
+    display: grid; grid-auto-flow: column; grid-auto-columns: 1fr; align-items: stretch;
+    position: fixed; left: 0; right: 0; bottom: 0; z-index: 60;
+    padding: 6px 8px calc(6px + env(safe-area-inset-bottom, 0px));
+    background: var(--ui-surface, #fff); border-top: 1px solid var(--ui-border, rgba(127, 140, 132, .28));
+    border-radius: 22px 22px 0 0;
+}
+.mtab { position: relative; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 2px; min-height: 52px; color: var(--ui-muted); text-decoration: none; font-size: .68rem; font-weight: 600; }
+.mtab-ico { display: grid; place-items: center; width: 56px; height: 30px; border-radius: 15px; transition: background .15s ease; }
+.mtab .icon { width: 22px; height: 22px; }
+.mtab.is-current { color: var(--ui-accent); font-weight: 800; }
+.mtab.is-current .mtab-ico { background: var(--ui-accent-soft); }
+.mtab-badge { position: absolute; top: 2px; left: calc(50% + 6px); min-width: 17px; height: 17px; padding: 0 4px; border-radius: 9px; background: #D92D20; color: #fff; font-size: .62rem; font-weight: 800; display: grid; place-items: center; }
+.mtab:focus-visible { outline: 3px solid var(--ui-accent); outline-offset: -3px; border-radius: 14px; }
+@media print { html[data-theme] .mtabbar:not(#_) { display: none; } }
+
+/* =====================================================================
+   COMPACT PHONE PASS: smaller type, tighter spacing, cleaner cards.
+   Everything here lives in mobile.css, so it only applies on phones.
+   ===================================================================== */
+
+/* ---------- Global type scale ---------- */
+html[data-theme]:not(#_) { font-size: calc(14px * var(--text-scale, 1)); }
+html[data-theme] body:not(#_) { font-size: 14px; line-height: 1.5; }
+html[data-theme] :is(p, li, label, small):not(#_) { line-height: 1.45; }
+html[data-theme] :is(h1, .page-title, .page-head h1):not(#_) { font-size: 1.4rem; line-height: 1.2; }
+html[data-theme] h2:not(#_) { font-size: 1.1rem; line-height: 1.25; }
+html[data-theme] h3:not(#_) { font-size: .98rem; line-height: 1.3; }
+html[data-theme] .section:not(#_) { padding: 22px 0; }
+html[data-theme] .section-head:not(#_) { margin-bottom: 2px; gap: 6px; }
+html[data-theme] .section-head h2:not(#_) { font-size: 1.1rem; }
+html[data-theme] .section-head a:not(#_) { font-size: .8rem; }
+html[data-theme] .eyebrow:not(#_) { font-size: .62rem; letter-spacing: .12em; }
+html[data-theme] .muted:not(#_) { font-size: .82rem; }
+html[data-theme] .card-grid:not(#_) { gap: 10px; margin-top: 12px; }
+html[data-theme] .btn:not(#_) { min-height: 42px; padding: 0 16px; font-size: .88rem; }
+html[data-theme] .btn-sm:not(#_) { min-height: 34px; font-size: .8rem; }
+html[data-theme] .crumbs:not(#_) { font-size: .76rem; }
+html[data-theme] .rule-heading:not(#_) { margin: 12px 0 10px; font-size: 1rem; }
+html[data-theme] .page-head:not(#_) { margin-bottom: 12px; }
+
+/* ---------- Home: Faculty & Advisers = 6 small cards + link to all ---------- */
+html[data-theme] #faculty .card-grid:not(#_) { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px; }
+html[data-theme] .faculty-card:not(#_) { padding: 10px 8px; margin-bottom: 0; border-radius: 14px; }
+html[data-theme] .faculty-card .officer-photo:not(#_) { width: 48px; height: 48px; margin: 0 auto 6px; font-size: .95rem; box-shadow: none; }
+html[data-theme] .faculty-card h3:not(#_) { font-size: .82rem; line-height: 1.25; margin: 0; overflow-wrap: anywhere; }
+html[data-theme] .faculty-card .faculty-position:not(#_) { font-size: .72rem; margin: 2px 0 0; }
+html[data-theme] .faculty-card .muted:not(#_) { font-size: .7rem !important; margin: 0; }
+html[data-theme] .faculty-card.fac-extra:not(#_) { display: none; }
+html[data-theme] .fac-all:not(#_) { display: flex; align-items: center; justify-content: center; min-height: 40px; margin-top: 10px; border-radius: 12px; background: var(--m-card); font-size: .85rem; font-weight: 700; text-decoration: none; }
+
+/* ---------- Officer cards: same compact size ---------- */
+html[data-theme] .officer-card:not(.faculty-card) .officer-photo:not(#_) { width: 52px; height: 52px; margin-bottom: 6px; }
+html[data-theme] .officer-card:not(.faculty-card) h3:not(#_) { font-size: .85rem; }
+html[data-theme] .officer-card:not(.faculty-card) p:not(#_) { font-size: .72rem; }
+html[data-theme] .officer-card .card-cta:not(#_) { display: none; }
+
+/* ---------- Announcements & event cards: one clean row each ---------- */
+html[data-theme] .post-card:not(#_) {
+    display: grid; grid-template-columns: 72px minmax(0, 1fr); column-gap: 12px; row-gap: 2px; align-items: start;
+    padding: 10px; margin-bottom: 8px; border-radius: 14px;
+}
+html[data-theme] .post-card > *:not(.post-card-img):not(#_) { grid-column: 2; min-width: 0; margin: 0; }
+html[data-theme] .post-card .post-card-img:not(#_) { grid-column: 1; grid-row: 1 / span 6; width: 72px; height: 72px; aspect-ratio: 1; border-radius: 12px; object-fit: cover; margin: 0; }
+html[data-theme] .post-card .post-card-img-empty .icon:not(#_) { width: 24px; height: 24px; }
+html[data-theme] .post-card h3:not(#_) { font-size: .9rem; line-height: 1.25; font-weight: 700; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+html[data-theme] .post-card p:not(.card-line):not(.muted):not(#_) { font-size: .78rem; line-height: 1.4; color: var(--ui-muted); display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+html[data-theme] .post-card .muted:not(#_) { font-size: .7rem !important; }
+html[data-theme] .post-card .card-line:not(#_) { display: flex; align-items: center; gap: 5px; font-size: .74rem; color: var(--ui-muted); }
+html[data-theme] .post-card .card-line .icon:not(#_) { width: 12px; height: 12px; flex: none; }
+html[data-theme] .post-card .card-cta:not(#_) { display: none; }
+html[data-theme] .post-card .card-chips:not(#_) { font-size: .66rem; }
+html[data-theme] .post-card .chip:not(#_) { font-size: .66rem; padding: 1px 7px; }
+
+/* ---------- Events: Major Events & Series tiles = small rows ---------- */
+html[data-theme] .event-grid:not(#_) { grid-template-columns: 1fr; gap: 8px; }
+html[data-theme] .event-tile:not(#_) { flex-direction: row; align-items: center; gap: 12px; padding: 10px; margin-bottom: 0; border-radius: 14px; }
+html[data-theme] .event-tile .event-tile-img:not(#_) { flex: none; width: 72px; height: 72px; aspect-ratio: 1; border-radius: 12px; }
+html[data-theme] .event-tile .event-tile-img-empty .icon:not(#_) { width: 24px; height: 24px; }
+html[data-theme] .event-tile-body:not(#_) { padding: 0; gap: 2px; min-width: 0; }
+html[data-theme] .event-tile-title:not(#_) { font-size: .9rem; line-height: 1.25; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+html[data-theme] .event-tile-meta:not(#_) { font-size: .72rem; line-height: 1.35; }
+html[data-theme] .event-tile-desc:not(#_) { display: none; }
+
+/* ---------- Events / announcements filters: small and tidy ---------- */
+html[data-theme] .list-controls:not(#_) { gap: 8px; margin-bottom: 8px; }
+html[data-theme] .tab:not(#_) { min-height: 34px; font-size: .78rem; padding: 0 12px; }
+html[data-theme] .inline-form:not(#_) { gap: 6px; }
+html[data-theme] .inline-form input[type="text"]:not(#_), html[data-theme] .inline-form input[type="search"]:not(#_) { min-height: 40px; height: 40px; font-size: 14px; }
+html[data-theme] .inline-form .filter-date:not(#_) { font-size: .68rem; gap: 2px; }
+html[data-theme] .inline-form .filter-date input:not(#_), html[data-theme] .inline-form .filter-date select:not(#_) { min-height: 38px; height: 38px; font-size: 13px; padding: 0 8px; }
+html[data-theme] .inline-form .btn:not(#_) { min-height: 36px; height: 36px; font-size: .8rem; padding: 0 12px; }
+html[data-theme] .inline-form > button.btn:not(#_), html[data-theme] .inline-form > a.btn:not(#_) { min-height: 36px; font-size: .8rem; }
+html[data-theme] .inline-form select:not(#_) { min-height: 40px; height: 40px; font-size: 14px; }
+
+/* ---------- Event calendar: show a small month grid on phones ---------- */
+html[data-theme] .cal-nav:not(#_) { gap: 6px; margin: 6px 0 10px; }
+html[data-theme] .cal-title:not(#_) { font-size: 1.05rem; }
+html[data-theme] .cal-grid:not(#_) { display: grid; border-radius: 12px; }
+html[data-theme] .cal-dow:not(#_) { padding: 6px 0; font-size: .62rem; }
+html[data-theme] .cal-cell:not(#_) { min-height: 44px; padding: 4px 2px; gap: 2px; align-items: center; justify-content: flex-start; }
+html[data-theme] .cal-day:not(#_) { font-size: .72rem; }
+/* events become little dots under the date; the full list is right below */
+html[data-theme] .cal-ev:not(#_) { width: 6px; height: 6px; padding: 0; border-radius: 50%; background: var(--ui-accent); font-size: 0; line-height: 0; overflow: hidden; display: inline-block; }
+html[data-theme] .cal-cell:has(.cal-ev):not(#_) { flex-direction: row; flex-wrap: wrap; align-content: flex-start; justify-content: center; column-gap: 3px; }
+html[data-theme] .cal-cell:has(.cal-ev) .cal-day:not(#_) { flex: 0 0 100%; text-align: center; }
+html[data-theme] .cal-more:not(#_) { display: none; }
+html[data-theme] .cal-agenda-title:not(#_) { margin: 16px 0 8px; font-size: .95rem; }
+html[data-theme] .cal-agenda a:not(#_) { padding: 9px 12px; border-radius: 12px; }
+html[data-theme] .cal-agenda strong:not(#_) { font-size: .86rem; }
+html[data-theme] .cal-agenda .muted:not(#_) { font-size: .72rem; }
+
+/* ---------- Faculty & Staff directory ---------- */
+html[data-theme] .dir-filters:not(#_) { padding: 12px; margin-bottom: 8px; }
+html[data-theme] .dir-filter-grid:not(#_) { gap: 8px; }
+html[data-theme] .dir-filters label:not(#_) { font-size: .74rem; }
+html[data-theme] .dir-filters :is(input, select):not(#_) { min-height: 40px; height: 40px; font-size: 14px; padding: 0 10px; }
+html[data-theme] .dir-filter-actions:not(#_) { gap: 8px; margin-top: 4px; }
+html[data-theme] .dir-filter-actions .btn:not(#_) { min-height: 38px; font-size: .82rem; }
+html[data-theme] .dir-count:not(#_) { margin: 6px 0; font-size: .76rem; }
+html[data-theme] .dir-card:not(#_) { padding: 10px 12px; gap: 10px; margin-bottom: 8px; }
+html[data-theme] .dir-avatar:not(#_) { width: 44px; height: 44px; flex: none; }
+html[data-theme] .dir-initials:not(#_) { font-size: .9rem; }
+html[data-theme] .dir-name:not(#_) { font-size: .9rem; }
+html[data-theme] .dir-position:not(#_), html[data-theme] .dir-unit:not(#_) { font-size: .76rem; margin: 0; }
+html[data-theme] .dir-card .vbadge:not(#_) { font-size: .62rem; padding: 1px 6px; margin-left: 4px; }
+
+/* ---------- Footer: compact ---------- */
+html[data-theme] .footer-spacer:not(#_) { display: none; }
+html[data-theme] .footer-pro:not(#_) { margin-top: 20px; }
+html[data-theme] .fp-cta-inner:not(#_) { padding: 12px 16px; gap: 8px; }
+html[data-theme] .fp-cta h3:not(#_) { font-size: .9rem; margin: 0; }
+html[data-theme] .fp-cta p:not(#_) { display: none; }
+html[data-theme] .fp-cta-actions .btn:not(#_) { min-height: 32px; font-size: .76rem; padding: 0 12px; }
+html[data-theme] .fp-main:not(#_) { padding: 14px 16px 8px; gap: 12px 16px; grid-template-columns: repeat(3, minmax(0, 1fr)); }
+html[data-theme] .fp-brand:not(#_) { grid-column: 1 / -1; display: flex; align-items: center; gap: 10px; }
+html[data-theme] .fp-brand .footer-logo:not(#_) { margin: 0; gap: 8px; }
+html[data-theme] .fp-brand .footer-logo img:not(#_) { width: 28px; height: 28px; }
+html[data-theme] .fp-brand .footer-logo strong:not(#_) { font-size: .84rem; }
+html[data-theme] .fp-brand .footer-logo span:not(#_), html[data-theme] .fp-brand > p:not(#_) { display: none; }
+html[data-theme] .fp-social:not(#_) { margin-left: auto; gap: 6px; }
+html[data-theme] .fp-social a:not(#_) { width: 30px; height: 30px; }
+html[data-theme] .fp-social .icon:not(#_) { width: 14px; height: 14px; }
+html[data-theme] .fp-col h4:not(#_) { margin: 0 0 4px; font-size: .62rem; letter-spacing: .1em; }
+html[data-theme] .fp-col ul:not(#_) { gap: 0; }
+html[data-theme] .fp-col a:not(#_), html[data-theme] .fp-col li > span:not(#_) { font-size: .76rem; }
+html[data-theme] .fp-col > ul > li > a:not(#_) { padding: 3px 0; }
+html[data-theme] .fp-contact:not(#_) { grid-column: 1 / -1; }
+html[data-theme] .fp-contact ul:not(#_) { display: flex; flex-wrap: wrap; gap: 2px 14px; }
+html[data-theme] .fp-contact li:not(#_) { padding: 2px 0; gap: 6px; }
+html[data-theme] .fp-contact .icon:not(#_) { width: 13px; height: 13px; margin-top: 1px; }
+html[data-theme] .fp-bottom:not(#_) { padding: 8px 16px 10px; gap: 2px; }
+html[data-theme] .footer-copy:not(#_) { font-size: .68rem; }
+html[data-theme] .footer-links a:not(#_), html[data-theme] .site-footer .footer-top:not(#_) { font-size: .7rem; }
+
+/* ---------- Specificity fixes: beat the generic 16px / 48px phone field rule and home.css !important padding ---------- */
+html[data-theme] :is(.inline-form, .dir-filters) :is(input:not([type=checkbox]):not([type=radio]), select):not(#_) { font-size: 14px !important; min-height: 40px !important; height: 40px !important; padding-top: 0 !important; padding-bottom: 0 !important; }
+html[data-theme] .inline-form .filter-date input:not(#_) { font-size: 13px !important; min-height: 38px !important; height: 38px !important; }
+html[data-theme] .inline-form .btn:not(#_), html[data-theme] .dir-filter-actions .btn:not(#_) { min-height: 38px !important; height: 38px !important; font-size: .82rem !important; padding: 0 12px !important; }
+html[data-theme] .home-page .card-grid > .officer-card:not(#_) { padding: 10px 8px !important; border-radius: 14px !important; border: 0 !important; }
+html[data-theme] .home-page .card-grid > .post-card:not(#_) { padding: 10px !important; border-radius: 14px !important; border: 0 !important; }
+html[data-theme] .post-card:not(#_) { row-gap: 0; }
+html[data-theme] .post-card .post-card-img:not(#_) { grid-row: 1 / span 5; }
+html[data-theme] .cal-ev:not(#_) { border-radius: 50% !important; }
+
+/* ---------- Login: password eye icon, centered in the field, no jump or tinted box on tap ---------- */
+html[data-theme] .pw-wrap .pw-toggle:not(#_) {
+    position: absolute; top: 0; bottom: 0; right: 0; left: auto; margin: 0; padding: 0;
+    width: 48px; height: 100%; min-width: 48px; min-height: 0;
+    display: flex; align-items: center; justify-content: center; line-height: 0;
+    transform: none !important; background: transparent !important; border: 0; border-radius: 0; box-shadow: none;
+    color: var(--ui-muted, #59685e); -webkit-tap-highlight-color: transparent;
+}
+html[data-theme] .pw-wrap .pw-toggle:is(:hover, :active, :focus, :focus-visible):not(#_) { background: transparent !important; transform: none !important; color: var(--ui-accent, #2f4f3a); }
+html[data-theme] .pw-wrap .pw-toggle:focus-visible:not(#_) { outline: 2px solid var(--ui-accent, #2f4f3a); outline-offset: -4px; border-radius: 8px; }
+html[data-theme] .pw-wrap .pw-toggle .icon:not(#_) { width: 22px; height: 22px; display: block; margin: 0; stroke-width: 1.8; }
+html[data-theme] .pw-wrap input:not(#_) { padding-right: 52px !important; }
+
+/* =====================================================================
+   FOOTER, ULTRA-COMPACT PHONE VERSION (phones only)
+   One slim banner, one brand row, links flowing in small type, one contact line, one copyright line.
+   ===================================================================== */
+html[data-theme] .footer-spacer:not(#_) { display: none !important; }
+html[data-theme] .footer-pro:not(#_) { margin-top: 16px !important; font-size: 11.5px; }
+
+/* slim banner */
+html[data-theme] .fp-cta-inner:not(#_) { padding: 8px 14px !important; gap: 8px !important; flex-wrap: nowrap !important; align-items: center; }
+html[data-theme] .fp-cta h3:not(#_) { font-size: 12px !important; line-height: 1.3; margin: 0 !important; font-weight: 600; flex: 1 1 auto; min-width: 0; }
+html[data-theme] .fp-cta p:not(#_) { display: none !important; }
+html[data-theme] .fp-cta-actions:not(#_) { width: auto !important; flex: none; gap: 6px !important; }
+html[data-theme] .fp-cta-actions .btn:not(#_) { min-height: 28px !important; height: 28px !important; padding: 0 12px !important; font-size: 11px !important; flex: none !important; }
+
+/* main block becomes a flowing, wrapped row of links */
+html[data-theme] .fp-main:not(#_) { display: flex !important; flex-wrap: wrap; align-items: center; gap: 0 14px !important; padding: 10px 14px 6px !important; }
+html[data-theme] .fp-brand:not(#_) { flex: 0 0 100%; display: flex !important; align-items: center; gap: 8px; margin-bottom: 4px; }
+html[data-theme] .fp-brand .footer-logo:not(#_) { margin: 0 !important; gap: 6px !important; }
+html[data-theme] .fp-brand .footer-logo img:not(#_) { width: 22px !important; height: 22px !important; }
+html[data-theme] .fp-brand .footer-logo strong:not(#_) { font-size: 12px !important; }
+html[data-theme] .fp-brand .footer-logo span:not(#_), html[data-theme] .fp-brand > p:not(#_) { display: none !important; }
+html[data-theme] .fp-social:not(#_) { margin: 0 0 0 auto !important; gap: 6px !important; }
+html[data-theme] .fp-social a:not(#_) { width: 26px !important; height: 26px !important; }
+html[data-theme] .fp-social .icon:not(#_) { width: 12px !important; height: 12px !important; }
+
+html[data-theme] .fp-col:not(#_), html[data-theme] .fp-col ul:not(#_) { display: contents !important; }
+html[data-theme] .fp-col h4:not(#_) { display: none !important; }
+html[data-theme] .fp-col li:not(#_) { display: inline-flex; padding: 0 !important; margin: 0; }
+html[data-theme] .fp-col a:not(#_), html[data-theme] .fp-col li > span:not(#_) { font-size: 11.5px !important; line-height: 1.3; padding: 5px 0 !important; transform: none !important; }
+html[data-theme] .fp-col > ul > li > a:not(#_) { padding: 5px 0 !important; }
+
+/* contact: just email + Facebook on one line */
+html[data-theme] .fp-contact .icon:not(#_) { display: none !important; }
+html[data-theme] .fp-contact li:last-child:not(#_) { display: none !important; }
+html[data-theme] .fp-contact li:not(#_) { padding: 0 !important; gap: 0 !important; }
+
+/* copyright row */
+html[data-theme] .fp-bottom:not(#_) { padding: 6px 14px 8px !important; gap: 0 !important; border-top: 1px solid var(--fp-line); margin-top: 4px; }
+html[data-theme] .fp-bottom .footer-copy:not(#_) { font-size: 10px !important; line-height: 1.4; margin: 0 !important; }
+html[data-theme] .fp-bottom .footer-links:not(#_) { gap: 8px !important; }
+html[data-theme] .fp-bottom .footer-links a:not(#_) { display: none !important; }   /* Terms is already in the Support links */
+html[data-theme] .site-footer .footer-top:not(#_) { font-size: 10.5px !important; padding: 2px 0 !important; }
+html[data-theme] .site-footer .footer-top .icon:not(#_) { width: 10px !important; height: 10px !important; }
+
+/* ---------- Footer: final phone size = links + contact + copyright only ---------- */
+html[data-theme] .fp-cta:not(#_), html[data-theme] .fp-brand:not(#_) { display: none !important; }
+html[data-theme] .footer-pro:not(#_) { margin-top: 12px !important; border-top: 1px solid var(--fp-line); }
+html[data-theme] .fp-main:not(#_) { padding: 8px 14px 4px !important; gap: 0 12px !important; }
+html[data-theme] .fp-col a:not(#_), html[data-theme] .fp-col > ul > li > a:not(#_) { padding: 3px 0 !important; font-size: 11px !important; }
+html[data-theme] .fp-contact:not(#_) { margin-top: 2px; }
+html[data-theme] .fp-bottom:not(#_) { display: flex !important; flex-direction: row !important; align-items: center; justify-content: space-between; gap: 8px !important; padding: 5px 14px 7px !important; margin-top: 2px; }
+html[data-theme] .fp-bottom .footer-links:not(#_) { flex: none; }
+html[data-theme] .fp-bottom .footer-copy:not(#_) { font-size: 9.5px !important; line-height: 1.35; }
+
+/* ---------- Footer, phone: ONLY the CSO logo + contact. No icons, nothing that resembles the bottom tab bar. ---------- */
+html[data-theme] .fp-cta:not(#_), html[data-theme] .fp-bottom:not(#_), html[data-theme] .fp-social:not(#_),
+html[data-theme] nav.fp-col:not(#_), html[data-theme] .fp-brand > p:not(#_), html[data-theme] .fp-contact h4:not(#_),
+html[data-theme] .fp-contact .icon:not(#_), html[data-theme] .fp-contact li:last-child:not(#_) { display: none !important; }
+html[data-theme] .fp-main:not(#_) { display: flex !important; flex-direction: column; align-items: center; gap: 4px !important; padding: 10px 14px 10px !important; }
+html[data-theme] .fp-brand:not(#_) { display: flex !important; flex: none; justify-content: center; margin: 0 !important; }
+html[data-theme] .fp-brand .footer-logo:not(#_) { display: flex; align-items: center; justify-content: center; gap: 8px !important; margin: 0 !important; }
+html[data-theme] .fp-brand .footer-logo img:not(#_) { width: 26px !important; height: 26px !important; }
+html[data-theme] .fp-brand .footer-logo strong:not(#_) { font-size: 12.5px !important; letter-spacing: .02em; }
+html[data-theme] .fp-brand .footer-logo span:not(#_) { display: none !important; }
+html[data-theme] .fp-contact:not(#_) { display: block !important; text-align: center; margin: 0 !important; }
+html[data-theme] .fp-contact ul:not(#_) { display: flex !important; flex-wrap: wrap; justify-content: center; gap: 0 14px !important; }
+html[data-theme] .fp-contact li:not(#_) { display: inline-flex !important; padding: 0 !important; }
+html[data-theme] .fp-contact a:not(#_) { font-size: 11px !important; padding: 3px 0 !important; color: var(--muted); }
+html[data-theme] .footer-pro:not(#_) { margin-top: 12px !important; border-top: 1px solid var(--fp-line); }
+
+/* =====================================================================
+   FOOTER (phones): brand block + Support + Contact, small and organized
+   ===================================================================== */
+html[data-theme] .footer-pro:not(#_) { margin-top: 14px !important; border-top: 1px solid var(--fp-line); }
+html[data-theme] .footer-pro .fp-main:not(#_) {
+    display: grid !important; grid-template-columns: minmax(0, .9fr) minmax(0, 1.1fr); align-items: start;
+    gap: 10px 16px !important; padding: 12px 16px 12px !important;
+}
+/* brand: logo + name, short description, social buttons */
+html[data-theme] .footer-pro .fp-brand:not(#_) { grid-column: 1 / -1; display: grid !important; grid-template-columns: minmax(0, 1fr) auto; align-items: center; gap: 4px 10px; margin: 0 !important; }
+html[data-theme] .footer-pro .fp-brand .footer-logo:not(#_) { grid-column: 1; display: flex; align-items: center; gap: 8px !important; margin: 0 !important; }
+html[data-theme] .footer-pro .fp-brand .footer-logo img:not(#_) { width: 28px !important; height: 28px !important; }
+html[data-theme] .footer-pro .fp-brand .footer-logo strong:not(#_) { display: block; font-size: 12px !important; line-height: 1.2; }
+html[data-theme] .footer-pro .fp-brand .footer-logo span:not(#_) { display: block !important; font-size: 10px !important; line-height: 1.2; color: var(--muted); }
+html[data-theme] .footer-pro .fp-brand > p:not(#_) { display: block !important; grid-column: 1 / -1; grid-row: 2; margin: 0 !important; max-width: none; font-size: 10.5px !important; line-height: 1.5; color: var(--muted); }
+html[data-theme] .footer-pro .fp-social:not(#_) { display: flex !important; grid-column: 2; grid-row: 1; margin: 0 !important; gap: 6px !important; }
+html[data-theme] .footer-pro .fp-social a:not(#_) { width: 26px !important; height: 26px !important; border-radius: 8px; }
+html[data-theme] .footer-pro .fp-social .icon:not(#_) { width: 13px !important; height: 13px !important; }
+
+/* Support + Contact side by side; Explore and Organization stay hidden on phones */
+html[data-theme] .footer-pro nav.fp-col:not(#_) { display: none !important; }
+html[data-theme] .footer-pro nav.fp-col[aria-label="Support"]:not(#_) { display: block !important; grid-column: 1; grid-row: 2; }
+html[data-theme] .footer-pro .fp-contact:not(#_) { display: block !important; grid-column: 2; grid-row: 2; text-align: left; margin: 0 !important; }
+html[data-theme] .footer-pro .fp-col h4:not(#_) { display: block !important; margin: 0 0 4px !important; padding-bottom: 4px; border-bottom: 1px solid var(--fp-line); font-size: 9.5px !important; letter-spacing: .12em; }
+html[data-theme] .footer-pro .fp-col ul:not(#_) { display: grid !important; gap: 0 !important; }
+html[data-theme] .footer-pro .fp-col li:not(#_) { display: flex !important; align-items: flex-start; gap: 6px !important; padding: 0 !important; }
+html[data-theme] .footer-pro .fp-col a:not(#_), html[data-theme] .footer-pro .fp-col li > span:not(#_) { font-size: 11px !important; line-height: 1.35; padding: 3px 0 !important; color: var(--ink-soft, var(--ink)); overflow-wrap: anywhere; }
+html[data-theme] .footer-pro .fp-contact .icon:not(#_) { display: block !important; width: 12px !important; height: 12px !important; margin-top: 4px !important; flex: none; color: var(--accent); }
+html[data-theme] .footer-pro .fp-contact li:last-child:not(#_) { display: flex !important; }
+html[data-theme] .footer-pro .fp-bottom:not(#_) { display: none !important; }
+html[data-theme] .footer-pro .fp-brand .footer-logo:not(#_) { justify-content: flex-start !important; }
+
+/* =====================================================================
+   EVENTS + ANNOUNCEMENTS FILTERS, small / clean (phones only)
+   Layout: tabs, search, From|To side by side, sort, then two small buttons in one row.
+   ===================================================================== */
+html[data-theme] .list-controls:not(#_) { display: flex !important; flex-direction: column; align-items: stretch !important; gap: 6px !important; margin: 0 0 8px !important; }
+html[data-theme] .list-controls > .inline-form:not(#_) { width: 100% !important; }
+html[data-theme] .tabs:not(#_) { display: flex; width: 100%; padding: 2px !important; gap: 2px; border-radius: 10px; }
+html[data-theme] .tabs .tab:not(#_) { flex: 1 1 0; justify-content: center; min-height: 28px !important; height: 28px; padding: 0 8px !important; font-size: 11.5px !important; line-height: 1; border-radius: 8px; }
+
+html[data-theme] form.inline-form:not(#_) { display: grid !important; grid-template-columns: 1fr 1fr; gap: 6px 8px !important; align-items: end; margin: 0; }
+html[data-theme] form.inline-form input[type="text"]:not(#_), html[data-theme] form.inline-form input[type="search"]:not(#_) { grid-column: 1 / -1; order: 1; width: 100% !important; max-width: none !important; min-width: 0 !important; }
+html[data-theme] form.inline-form .filter-date:not(#_) { order: 2; display: flex !important; flex-direction: column; gap: 1px !important; margin: 0; min-width: 0; font-size: 10px !important; font-weight: 600; letter-spacing: .02em; color: var(--ui-muted, #59685e); }
+html[data-theme] form.inline-form .filter-date:has(select):not(#_) { order: 3; grid-column: 1 / -1; }
+html[data-theme] form.inline-form .filter-date > span:not(.sr-only):not(#_) { font-size: 10px !important; line-height: 1.2; }
+
+/* every field in these forms: 36px tall, 12.5px type */
+html[data-theme] form.inline-form :is(input:not([type=checkbox]):not([type=radio]), select):not(#_) {
+    height: 36px !important; min-height: 36px !important; padding: 0 8px !important; font-size: 12.5px !important; line-height: 1.2; width: 100% !important; min-width: 0 !important;
+}
+html[data-theme] form.inline-form input[type="date"]:not(#_) { padding-right: 4px !important; }
+html[data-theme] form.inline-form input[type="date"]::-webkit-calendar-picker-indicator:not(#_) { width: 12px; height: 12px; padding: 0; margin: 0 0 0 2px; }
+html[data-theme] form.inline-form select:not(#_) { background-size: 12px; }
+
+/* buttons: small and side by side */
+html[data-theme] form.inline-form > .btn:not(#_) { order: 4; grid-column: auto !important; width: 100% !important; height: 32px !important; min-height: 32px !important; padding: 0 10px !important; font-size: 11.5px !important; font-weight: 600; }
+html[data-theme] form.inline-form > button.btn:last-child:not(#_) { grid-column: 1 / -1 !important; }   /* lone Filter button = full width */
+html[data-theme] form.inline-form :is(input, select):not(#_) { font-weight: 400 !important; }
+html[data-theme] form.inline-form input[type="date"]::-webkit-datetime-edit:not(#_) { font-weight: 400; padding: 0; }
+
+/* page headings on these pages */
+html[data-theme] .page-head h1:not(#_), html[data-theme] .page-title:not(#_) { font-size: 1.25rem !important; margin: 2px 0 4px !important; }
+html[data-theme] .page-head p.muted:not(#_) { font-size: 11.5px !important; line-height: 1.4; margin: 0 0 6px !important; }
+html[data-theme] .rule-heading:not(#_) { font-size: .92rem !important; margin: 8px 0 8px !important; }
+
+/* ---------- Events / Announcements: extra-small pass ---------- */
+html[data-theme] .tabs:not(#_) { padding: 1px !important; border-radius: 8px; }
+html[data-theme] .tabs .tab:not(#_) { min-height: 24px !important; height: 24px; font-size: 10.5px !important; padding: 0 6px !important; }
+html[data-theme] .list-controls:not(#_) { gap: 4px !important; margin-bottom: 6px !important; }
+html[data-theme] form.inline-form:not(#_) { gap: 4px 6px !important; }
+html[data-theme] form.inline-form :is(input:not([type=checkbox]):not([type=radio]), select):not(#_) { height: 30px !important; min-height: 30px !important; font-size: 11.5px !important; padding: 0 6px !important; }
+html[data-theme] form.inline-form input[type="date"]::-webkit-datetime-edit:not(#_) { font-size: 11.5px; }
+html[data-theme] form.inline-form input[type="date"]::-webkit-calendar-picker-indicator:not(#_) { width: 10px; height: 10px; }
+html[data-theme] form.inline-form .filter-date:not(#_), html[data-theme] form.inline-form .filter-date > span:not(.sr-only):not(#_) { font-size: 9px !important; }
+html[data-theme] form.inline-form > .btn:not(#_) { height: 28px !important; min-height: 28px !important; font-size: 10.5px !important; padding: 0 8px !important; }
+html[data-theme] .page-head h1:not(#_), html[data-theme] .page-title:not(#_) { font-size: 1.1rem !important; margin: 0 0 2px !important; }
+html[data-theme] .page-head p.muted:not(#_) { font-size: 10.5px !important; line-height: 1.35; margin: 0 0 4px !important; }
+html[data-theme] .rule-heading:not(#_) { font-size: .82rem !important; margin: 4px 0 6px !important; }
+html[data-theme] .crumbs:not(#_) { font-size: 10.5px; margin: 4px 0 !important; }
+
+/* =====================================================================
+   OFFICERS / MEMBERS / FACULTY & STAFF: small, clean search + filters (phones only)
+   Officers + Members: input and button share ONE row. Directory: search on top,
+   Unit + Employee type side by side, two small buttons in one row.
+   ===================================================================== */
+html[data-theme] .people-page .section:not(#_) { padding: 14px 0 !important; }
+html[data-theme] .people-page .section-head:not(#_) { margin-bottom: 6px !important; }
+html[data-theme] .people-page .section-head h2:not(#_) { font-size: 1rem !important; }
+html[data-theme] .people-page .section-head p:not(#_) { margin: 2px 0 0 !important; font-size: 11px !important; line-height: 1.4; }
+html[data-theme] .people-page .eyebrow:not(#_) { font-size: 9px !important; }
+
+html[data-theme] .people-page form.inline-form:not(#_), html[data-theme] .people-page form.members-search:not(#_) {
+    display: flex !important; flex-direction: row !important; flex-wrap: nowrap !important; align-items: center !important; gap: 6px !important; max-width: none !important; margin: 0 0 8px !important;
+}
+html[data-theme] .people-page form :is(input[type="text"], input[type="search"]):not(#_) {
+    flex: 1 1 auto !important; min-width: 0 !important; width: auto !important; height: 32px !important; min-height: 32px !important; padding: 0 6px !important; font-size: 12px !important; line-height: 1.2; font-weight: 400 !important;
+}
+html[data-theme] .people-page form > .btn:not(#_) {
+    flex: none !important; width: auto !important; grid-column: auto !important; order: 0 !important; height: 32px !important; min-height: 32px !important; padding: 0 14px !important; font-size: 11px !important; font-weight: 600; border-radius: 8px;
+}
+html[data-theme] .people-count:not(#_), html[data-theme] .members-count:not(#_) { margin: 4px 0 8px !important; font-size: 11px !important; }
+
+/* Faculty & Staff directory filters */
+html[data-theme] .dir-filters:not(#_) { padding: 10px !important; margin: 0 0 6px !important; border-radius: 12px; }
+html[data-theme] .dir-filter-grid:not(#_) { display: grid !important; grid-template-columns: 1fr 1fr !important; gap: 6px 8px !important; }
+html[data-theme] .dir-filter-grid > div:first-child:not(#_) { grid-column: 1 / -1; }
+html[data-theme] .dir-filter-grid > div:not(#_) { min-width: 0; }
+html[data-theme] .dir-filters label:not(#_) { display: block; margin: 0 0 1px !important; font-size: 9.5px !important; font-weight: 600; letter-spacing: .02em; color: var(--ui-muted, #59685e); }
+html[data-theme] .dir-filters :is(input, select):not(#_) { width: 100% !important; height: 32px !important; min-height: 32px !important; padding: 0 6px !important; font-size: 12px !important; font-weight: 400 !important; }
+html[data-theme] .dir-filters select:not(#_) { background-size: 12px; }
+html[data-theme] .dir-filter-actions:not(#_) { display: grid !important; grid-template-columns: 1fr 1fr; gap: 6px !important; margin: 8px 0 0 !important; }
+html[data-theme] .dir-filter-actions .btn:not(#_) { width: 100% !important; height: 30px !important; min-height: 30px !important; padding: 0 8px !important; font-size: 11px !important; font-weight: 600; border-radius: 8px; justify-content: center; }
+html[data-theme] .dir-count:not(#_) { margin: 4px 0 6px !important; font-size: 11px !important; }
+
+/* specificity + order fixes for the three pages above */
+html[data-theme] .people-page form.inline-form :is(input[type="text"], input[type="search"]):not([type=checkbox]):not([type=radio]):not([type=hidden]):not(#_),
+html[data-theme] .people-page form.members-search :is(input[type="text"], input[type="search"]):not([type=checkbox]):not([type=radio]):not([type=hidden]):not(#_) {
+    order: 1 !important; flex: 1 1 auto !important; width: auto !important; height: 32px !important; min-height: 32px !important; font-size: 12px !important; padding: 0 6px !important; grid-column: auto !important;
+}
+html[data-theme] .people-page form.inline-form > .btn:not(#_), html[data-theme] .people-page form.members-search > .btn:not(#_) { order: 2 !important; }
+html[data-theme] form.dir-filters .dir-filter-grid :is(input:not([type=checkbox]):not([type=radio]):not([type=hidden]), select):not(#_) {
+    height: 32px !important; min-height: 32px !important; font-size: 12px !important; padding: 0 6px !important; width: 100% !important;
+}
+
+/* =====================================================================
+   FOOTER STICKS TO THE TAB BAR (phones only)
+   - no gap between the footer and the bottom tab bar (the old +14px is gone)
+   - on short pages the footer is pushed down to rest right on top of the tab bar
+   - body no longer adds extra scroll height, so the page cannot be dragged up past its content
+   ===================================================================== */
+html[data-theme] body:not(.has-dashboard):not(.auth-body):not(#_) {
+    box-sizing: border-box; min-height: 100vh; min-height: 100dvh;
+    padding-bottom: calc(var(--m-tab-h) + env(safe-area-inset-bottom, 0px));
+}
+html[data-theme] .footer-spacer:not(#_) { display: block !important; flex: 1 0 0 !important; min-height: 12px !important; height: auto; }
+html[data-theme] body > .site-footer:not(#_), html[data-theme] .site-footer.footer-pro:not(#_) {
+    margin-top: 0 !important; padding-bottom: 0 !important; box-shadow: none !important; border-top: 1px solid var(--ui-border, rgba(127, 140, 132, .28));
+    background: var(--ui-surface, #fff) !important; flex-shrink: 0;
+}
+html[data-theme] .mtabbar:not(#_) { border-radius: 0 !important; border-top: 1px solid var(--ui-border, rgba(127, 140, 132, .28)); box-shadow: none; }
+
+/* =====================================================================
+   FOOTER NEVER HIDES BEHIND THE TAB BAR + NOTIFICATIONS (phones only)
+   --m-tab-h is set from the real tab-bar height by a tiny script in
+   includes/footer.php; the 64px here is only the fallback.
+   Every page (public and dashboard) gets exactly that much room at the bottom,
+   so the last line of content or the footer always ends above the bar.
+   ===================================================================== */
+html[data-theme] { --m-tab-total: calc(var(--m-tab-h, 64px) + env(safe-area-inset-bottom, 0px)); scroll-padding-bottom: var(--m-tab-total); }
+html[data-theme] body:not(.auth-body):not(#_) { padding-bottom: var(--m-tab-total) !important; }
+html[data-theme] body.has-dashboard:not(#_) .app-main-inner { padding-bottom: 20px; }
+html[data-theme] .footer-spacer:not(#_) { flex: 1 0 0 !important; min-height: 16px !important; }
+html[data-theme] .site-footer.footer-pro:not(#_) { position: relative; z-index: 3; isolation: isolate; margin: 0 !important; padding: 0 !important; overflow: hidden; backdrop-filter: none; -webkit-backdrop-filter: none; background: var(--ui-surface, #fff) !important; clear: both; }
+html[data-theme] .mtabbar:not(#_) { z-index: 60; }
+
+/* ---------- Notifications: small, clean, professional ---------- */
+html[data-theme] .notif-head:not(#_) { display: flex; align-items: flex-start; justify-content: space-between; gap: 10px; margin-bottom: 10px; }
+html[data-theme] .notif-head > div:not(#_) { min-width: 0; }
+html[data-theme] .notif-head .btn:not(#_) { height: 28px !important; min-height: 28px !important; padding: 0 10px !important; font-size: 11px !important; font-weight: 600; border-radius: 8px; width: auto !important; white-space: nowrap; flex: none; }
+
+html[data-theme] .notif-prefs:not(#_), html[data-theme] .notif-panel:not(#_) { padding: 10px 12px; margin-bottom: 10px; border-radius: 14px; }
+html[data-theme] .notif-prefs-form:not(#_) { display: flex; align-items: center; justify-content: space-between; gap: 10px; flex-wrap: nowrap; }
+html[data-theme] .notif-prefs-label:not(#_) { display: flex; align-items: center; gap: 8px; margin: 0; min-width: 0; font-size: 11.5px; line-height: 1.35; font-weight: 500; }
+html[data-theme] .notif-prefs-label input:not(#_) { width: 16px; height: 16px; min-height: 0; flex: none; margin: 0; }
+html[data-theme] .notif-prefs-form .btn:not(#_) { height: 28px !important; min-height: 28px !important; padding: 0 12px !important; font-size: 11px !important; font-weight: 600; border-radius: 8px; width: auto !important; flex: none; }
+
+html[data-theme] .notif-panel .panel-head:not(#_) { margin-bottom: 4px; padding-bottom: 6px; flex-wrap: nowrap; }
+html[data-theme] .notif-panel .panel-head h2:not(#_) { font-size: .82rem; font-weight: 700; letter-spacing: .02em; text-transform: uppercase; color: var(--ui-muted, #59685e); }
+
+html[data-theme] .notif-item:not(#_) { padding: 8px 0; border-bottom: 1px solid var(--ui-border, rgba(127, 140, 132, .24)); }
+html[data-theme] .notif-item:last-child:not(#_) { border-bottom: 0; padding-bottom: 2px; }
+html[data-theme] .notif-msg:not(#_) { margin: 0; font-size: 12.5px; line-height: 1.45; color: var(--ui-ink, inherit); }
+html[data-theme] .notif-new:not(#_) { font-size: 9px; font-weight: 700; padding: 1px 6px; margin-right: 6px; vertical-align: 1px; letter-spacing: .04em; text-transform: uppercase; }
+html[data-theme] .notif-link:not(#_) { display: inline-block; margin-top: 2px; font-size: 11.5px; font-weight: 600; }
+html[data-theme] .notif-time:not(#_) { display: block; margin-top: 2px; font-size: 10.5px; color: var(--ui-muted, #59685e); }
+html[data-theme] .notif-empty:not(#_) { padding: 14px 8px; }
+html[data-theme] .notif-empty h3:not(#_) { font-size: .82rem; margin: 0; font-weight: 600; }
+
+/* announcements inside notifications: slim rows instead of big cards */
+html[data-theme] .notif-announcements:not(#_) { display: block; }
+html[data-theme] .notif-announcements .post-card:not(#_) { display: grid; grid-template-columns: 48px minmax(0, 1fr); column-gap: 10px; row-gap: 1px; align-items: start; padding: 8px 0 !important; margin: 0; background: none; border-radius: 0 !important; border-bottom: 1px solid var(--ui-border, rgba(127, 140, 132, .24)) !important; }
+html[data-theme] .notif-announcements .post-card:last-child:not(#_) { border-bottom: 0 !important; }
+html[data-theme] .notif-announcements .post-card-img:not(#_) { grid-column: 1; grid-row: 1 / span 4; width: 48px; height: 48px; border-radius: 10px; object-fit: cover; margin: 0; display: grid; place-items: center; }
+html[data-theme] .notif-announcements .post-card-img .icon:not(#_) { width: 20px; height: 20px; }
+html[data-theme] .notif-announcements .post-card > *:not(.post-card-img):not(#_) { grid-column: 2; min-width: 0; }
+html[data-theme] .notif-announcements .card-chips:not(#_) { margin: 0; }
+html[data-theme] .notif-announcements .post-card h3:not(#_) { margin: 0; font-size: 12.5px; line-height: 1.3; font-weight: 700; }
+html[data-theme] .notif-announcements .post-card p:not(#_) { margin: 0; font-size: 11px; line-height: 1.4; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+html[data-theme] .notif-announcements .post-card p.muted:not(#_) { font-size: 10px !important; -webkit-line-clamp: 1; }
+html[data-theme] .notif-announcements .card-cta:not(#_) { display: none; }
+
+/* ---------- Footer must never be covered by page content (phones only) ----------
+   Calendar, Events, Announcements, Map, Faculty & Staff and Curriculum all have sticky,
+   transformed or animated pieces. Positioned content paints above a plain footer, so on
+   phones those pieces are made static and the footer sits on its own layer above them. */
+html[data-theme] :is(.mapx-map, .map-stage .campus-map, .detail-aside, .ab-card, .dir-filters, .curr-toolbar, .curr-nav, .cal-head):not(#_) { position: static !important; top: auto !important; }
+html[data-theme] body:not(.has-dashboard) :is(section, .section, .container, .feed, .event-grid, .card-grid, .map-stage, .mapx, .curr-page, .cal-wrap):not(#_) { position: relative; z-index: 0; }
+html[data-theme] .footer-spacer:not(#_) { position: relative; z-index: 0; }
+html[data-theme] .mtabbar:not(#_) { z-index: 60; }
+html[data-theme] body > .site-footer:not(#_) { margin-top: 0 !important; }
+
+/* =====================================================================
+   POP-UPS (Create post / Create event / Add member): always above the tab bar,
+   full content reachable. The tab bar hides while a pop-up is open.
+   ===================================================================== */
+html[data-theme] .modal-overlay:not(#_) { z-index: 300; }
+html[data-theme] body:has(.modal-overlay.open) .mtabbar:not(#_) { display: none; }
+html[data-theme] .modal-overlay:not(#_) { padding: 0; align-items: flex-end; }
+html[data-theme] .modal-overlay .modal-box:not(#_) { width: 100%; max-width: none !important; max-height: 94dvh; max-height: 94svh; border-radius: 16px 16px 0 0; display: flex; flex-direction: column; overflow: hidden; }
+html[data-theme] .modal-overlay .modal-header:not(#_) { padding: 12px 14px 10px; flex: none; }
+html[data-theme] .modal-overlay .modal-header h3:not(#_) { font-size: .98rem; }
+html[data-theme] .modal-overlay .modal-body:not(#_) { padding: 8px 14px calc(14px + env(safe-area-inset-bottom, 0px)); overflow-y: auto; min-height: 0; }
+html[data-theme] .modal-overlay .modal-close:not(#_) { width: 30px; height: 30px; font-size: 1.2rem; }
+
+/* composer (Create post / Create event / edit) */
+html[data-theme] .composer-overlay:not(#_) { padding: 0; }
+html[data-theme] .composer-overlay .composer:not(#_) { max-height: 94dvh; max-height: 94svh; border-radius: 16px 16px 0 0; }
+html[data-theme] .composer-overlay .composer-head:not(#_) { padding: 10px 52px 10px 14px; }
+html[data-theme] .composer-overlay .composer-head h3:not(#_) { font-size: .98rem; }
+html[data-theme] .composer-overlay .composer-close:not(#_) { right: 10px; width: 30px; height: 30px; }
+html[data-theme] .composer-overlay .composer-close .icon:not(#_) { width: 15px; height: 15px; }
+html[data-theme] .composer-overlay .composer-scroll:not(#_) { padding: 10px 14px 6px; }
+html[data-theme] .composer-overlay .composer-user:not(#_) { gap: 8px; margin-bottom: 8px; }
+html[data-theme] .composer-overlay .composer-user .post-avatar:not(#_), html[data-theme] .composer-overlay .composer-user img:not(#_) { width: 34px !important; height: 34px !important; }
+html[data-theme] .composer-overlay .composer-user strong:not(#_) { font-size: .82rem; }
+html[data-theme] .composer-overlay .composer-audience:not(#_) { font-size: .66rem; padding: 1px 8px; margin-top: 1px; }
+html[data-theme] .composer-overlay .composer-audience .icon:not(#_) { width: 11px; height: 11px; }
+html[data-theme] .composer-label:not(#_) { margin: 8px 0 3px; font-size: .68rem; }
+html[data-theme] .composer .composer-title:not(#_) { font-size: .95rem !important; min-height: 38px; height: 38px; padding: 0 10px; border-radius: 10px; }
+html[data-theme] .composer .composer-text:not(#_) { font-size: .88rem !important; line-height: 1.45; min-height: 74px !important; padding: 8px 10px; border-radius: 10px; }
+html[data-theme] .composer-details:not(#_), html[data-theme] .composer-section:not(#_) { margin-top: 8px; padding: 9px 10px; gap: 8px; border-radius: 12px; }
+html[data-theme] .composer-details-title:not(#_) { font-size: .76rem; font-weight: 700; }
+html[data-theme] .composer-grid:not(#_) { grid-template-columns: 1fr 1fr; gap: 8px; }
+html[data-theme] .composer-details label:not(#_), html[data-theme] .composer-section label:not(#_) { font-size: .66rem; margin: 0 0 2px; }
+html[data-theme] .composer :is(input:not([type=checkbox]):not([type=radio]):not([type=file]), select):not(.composer-title):not(#_) { min-height: 34px !important; height: 34px !important; font-size: 13px !important; padding: 0 8px !important; border-radius: 9px; }
+html[data-theme] .composer small:not(#_), html[data-theme] .composer-details .muted:not(#_), html[data-theme] .composer-section .muted:not(#_) { font-size: .66rem !important; line-height: 1.35; }
+html[data-theme] .composer-section-head:not(#_) { font-size: .76rem; }
+html[data-theme] .composer-section-head .icon:not(#_) { width: 14px; height: 14px; }
+html[data-theme] .composer-section-x:not(#_) { width: 24px; height: 24px; font-size: 1rem; }
+html[data-theme] .composer-hint:not(#_) { font-size: .68rem; margin: 4px 2px 2px; }
+html[data-theme] .composer-add:not(#_) { margin: 6px 14px 8px; padding: 3px 4px 3px 12px; border-radius: 12px; font-size: .78rem; }
+html[data-theme] .composer-tool:not(#_) { width: 36px; height: 36px; margin-left: 2px; }
+html[data-theme] .composer-tool .icon:not(#_) { width: 20px; height: 20px; }
+html[data-theme] .composer .composer-post:not(#_) { min-height: 40px !important; height: 40px; font-size: .88rem; border-radius: 10px; margin: 0 14px calc(12px + env(safe-area-inset-bottom, 0px)); width: calc(100% - 28px); }
+
+/* "What's on your mind" launcher boxes */
+html[data-theme] .post-launcher:not(#_) { padding: 8px 10px; gap: 8px; border-radius: 12px; margin-bottom: 10px; }
+html[data-theme] .post-launcher .post-avatar:not(#_), html[data-theme] .post-launcher img:not(#_) { width: 32px !important; height: 32px !important; }
+html[data-theme] .post-launcher-input:not(#_) { min-height: 34px !important; height: 34px; padding: 0 12px; font-size: .78rem; border-radius: 17px; }
+html[data-theme] .post-launcher-photo:not(#_) { min-height: 34px; padding: 0 8px; font-size: .72rem; }
+html[data-theme] .post-launcher-photo span:not(#_) { display: none; }
+html[data-theme] .post-launcher-photo .icon:not(#_) { width: 20px; height: 20px; }
+
+/* =====================================================================
+   MANAGE MEMBERS (phones only): slim header, one-line filters, compact rows
+   ===================================================================== */
+html[data-theme] .page-head:has(+ .mm):not(#_), html[data-theme] .page-head:has(+ .modal-overlay):not(#_) { display: block; }
+html[data-theme] .page-head > div[style*="display:flex"]:not(#_) { display: flex !important; flex-wrap: wrap; gap: 6px !important; margin-top: 8px; }
+html[data-theme] .page-head > div[style*="display:flex"] .btn:not(#_) { width: auto !important; flex: 1 1 auto; height: 30px !important; min-height: 30px !important; padding: 0 10px !important; font-size: 11px !important; font-weight: 600; border-radius: 8px; gap: 5px; }
+html[data-theme] .page-head > div[style*="display:flex"] .btn .icon:not(#_) { width: 12px; height: 12px; }
+html[data-theme] .page-head > div[style*="display:flex"] .btn-primary:not(#_) { flex: 1 1 100%; height: 34px !important; min-height: 34px !important; font-size: 12px !important; }
+
+html[data-theme] .mm:not(#_) { background: none; border: 0; border-radius: 0; }
+html[data-theme] .mm-bar:not(#_) { display: block; padding: 0 0 8px; border: 0; }
+html[data-theme] .mm-pills:not(#_) { flex-wrap: nowrap; overflow-x: auto; gap: 5px; padding-bottom: 6px; margin: 0 -2px 6px; scrollbar-width: none; }
+html[data-theme] .mm-pills:not(#_)::-webkit-scrollbar { display: none; }
+html[data-theme] .mm-pill:not(#_) { flex: none; padding: 3px 9px; font-size: 11px; gap: 5px; }
+html[data-theme] .mm-pill b:not(#_) { font-size: 10px; padding: 0 6px; }
+html[data-theme] .mm-search:not(#_) { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr) auto; gap: 6px; max-width: none; width: 100%; }
+html[data-theme] .mm-search input[type="search"]:not(#_) { grid-column: 1 / -1; width: 100% !important; max-width: none !important; min-width: 0; height: 34px !important; min-height: 34px !important; font-size: 13px !important; padding: 0 10px !important; }
+html[data-theme] .mm-search select:not(#_) { width: 100% !important; height: 32px !important; min-height: 32px !important; font-size: 12px !important; padding: 0 22px 0 8px !important; }
+html[data-theme] .mm-search .btn:not(#_) { height: 32px !important; min-height: 32px !important; padding: 0 14px !important; font-size: 11.5px !important; }
+html[data-theme] .mm-clear:not(#_) { grid-column: 1 / -1; font-size: 11px; justify-self: start; }
+
+html[data-theme] .mm-list:not(#_) { display: grid; gap: 8px; }
+html[data-theme] .mm-row:not(#_) { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 8px 10px; padding: 10px 12px; background: var(--m-card); border: 0; border-radius: 14px; }
+html[data-theme] .mm-who:not(#_) { gap: 9px; }
+html[data-theme] .mm-ava:not(#_) { width: 34px; height: 34px; font-size: .72rem; }
+html[data-theme] .mm-name:not(#_) { font-size: .82rem; line-height: 1.25; }
+html[data-theme] .mm-name .badge:not(#_), html[data-theme] .mm-name .vbadge:not(#_) { font-size: .58rem; padding: 1px 6px; margin-left: 2px; }
+html[data-theme] .mm-sub:not(#_) { font-size: .68rem; }
+html[data-theme] .mm-cell[data-label]:not(#_)::before { font-size: .58rem; margin-bottom: 2px; }
+html[data-theme] .mm-pos:not(#_) { font-size: .74rem; grid-column: 1 / -1; }
+html[data-theme] .mm-pos.mm-cell[data-label]:not(#_)::before { display: inline; margin: 0 6px 0 0; }
+html[data-theme] .mm-select:not(#_) { height: 30px !important; min-height: 30px !important; font-size: 12px !important; padding: 0 22px 0 10px !important; border-radius: 999px; }
+html[data-theme] .mm-actions:not(#_) { gap: 6px; flex-wrap: wrap; }
+html[data-theme] .mm-actions .btn:not(#_), html[data-theme] .mm-actions .btn-sm:not(#_) { height: 28px !important; min-height: 28px !important; padding: 0 12px !important; font-size: 11px !important; border-radius: 8px; width: auto !important; }
+html[data-theme] .mm-menu summary:not(#_) { width: 28px; height: 28px; font-size: 1rem; border-radius: 8px; }
+html[data-theme] #bulk-form:not(#_) { font-size: 12px; gap: 8px !important; }
+html[data-theme] #bulk-form .btn:not(#_) { height: 28px !important; min-height: 28px !important; font-size: 11px !important; width: auto !important; padding: 0 12px !important; }
+
+/* =====================================================================
+   MANAGE EVENTS table -> slim cards (phones only)
+   ===================================================================== */
+html[data-theme] .panel:has(.ev-table):not(#_) { padding: 10px 12px; }
+html[data-theme] .panel:has(.ev-table) .panel-head:not(#_) { margin-bottom: 6px; }
+html[data-theme] .panel:has(.ev-table) .panel-head h2:not(#_) { font-size: .82rem; text-transform: uppercase; letter-spacing: .02em; color: var(--ui-muted, #59685e); }
+html[data-theme] .panel:has(.ev-table) .table-wrap:not(#_) { background: none; border: 0; box-shadow: none; overflow: visible; }
+html[data-theme] table.ev-table:not(#_) { display: block; min-width: 0 !important; width: 100%; }
+html[data-theme] table.ev-table thead:not(#_) { display: none; }
+html[data-theme] table.ev-table tbody:not(#_) { display: grid; gap: 0; }
+html[data-theme] table.ev-table tbody tr:not(#_) { display: grid; grid-template-columns: 44px minmax(0, 1fr); column-gap: 10px; row-gap: 1px; align-items: start; padding: 10px 0; border-bottom: 1px solid var(--ui-border, rgba(127,140,132,.24)); background: none; }
+html[data-theme] table.ev-table tbody tr:last-child:not(#_) { border-bottom: 0; }
+html[data-theme] table.ev-table td:not(#_) { display: block; padding: 0 !important; border: 0 !important; background: none !important; white-space: normal !important; overflow-wrap: anywhere; font-size: 11px; color: var(--ui-muted, #59685e); }
+html[data-theme] table.ev-table td.ev-cover:not(#_) { grid-column: 1; grid-row: 1 / span 5; }
+html[data-theme] table.ev-table td.ev-cover img:not(#_), html[data-theme] table.ev-table td.ev-cover span:not(#_) { width: 44px !important; height: 44px !important; border-radius: 10px !important; }
+html[data-theme] table.ev-table td:not(.ev-cover):not(.ev-actions):not(#_) { grid-column: 2; }
+html[data-theme] table.ev-table td.ev-title:not(#_) { font-size: 13px; font-weight: 700; line-height: 1.3; }
+html[data-theme] table.ev-table td.ev-title a:not(#_) { color: var(--ui-ink, inherit); }
+html[data-theme] table.ev-table td.ev-meta:not(#_):empty { display: none; }
+html[data-theme] table.ev-table td.ev-meta:not(#_)::before { content: attr(data-label) ": "; font-weight: 600; opacity: .8; }
+html[data-theme] table.ev-table td.ev-num:not(#_) { display: inline-block; }
+html[data-theme] table.ev-table td.ev-actions:not(#_) { grid-column: 1 / -1; margin-top: 8px; }
+html[data-theme] table.ev-table .table-actions:not(#_) { flex-wrap: wrap; gap: 5px; }
+html[data-theme] table.ev-table .table-actions form:not(#_) { margin: 0; }
+html[data-theme] table.ev-table .table-actions .btn:not(#_) { height: 26px !important; min-height: 26px !important; padding: 0 10px !important; font-size: 10.5px !important; font-weight: 600; border-radius: 7px; width: auto !important; }
+html[data-theme] .composer-add:not(#_) { flex-wrap: nowrap; }
+html[data-theme] .composer-add-title:not(#_) { white-space: nowrap; }
+
+/* =====================================================================
+   COMPOSER FIX (Create post / Create event / edit), phones only.
+   Labelled "Add to your post" chips that wrap, and a Cancel + Post footer that
+   always fits the screen. These come last so they win over the rules above.
+   ===================================================================== */
+html[data-theme] .composer-overlay .composer-close:not(#_) { width: 30px; height: 30px; min-height: 0; min-width: 0; padding: 0; }
+html[data-theme] .composer-overlay .composer-section-x:not(#_) { width: 24px; height: 24px; min-height: 0; min-width: 0; padding: 0; }
+html[data-theme] .composer-overlay .composer-section-head:not(#_) { gap: 6px; }
+
+html[data-theme] .composer-overlay .composer-add:not(#_) { display: flex; flex-direction: column; align-items: stretch; flex-wrap: nowrap; gap: 6px; margin: 8px 14px 0; padding: 0; border: 0; border-radius: 0; background: transparent; box-shadow: none; }
+html[data-theme] .composer-overlay .composer-add-title:not(#_) { font-size: .68rem; font-weight: 700; letter-spacing: .03em; text-transform: uppercase; color: var(--ui-muted, #59685e); white-space: nowrap; }
+html[data-theme] .composer-overlay .composer-tools:not(#_) { display: flex; flex-wrap: wrap; align-items: center; gap: 6px; }
+html[data-theme] .composer-overlay .composer-tool:not(#_) { width: auto; height: 30px; min-height: 0; min-width: 0; margin: 0; padding: 0 10px 0 8px; display: inline-flex; align-items: center; gap: 6px; border-radius: 999px; font-size: 11.5px; font-weight: 600; line-height: 1; }
+html[data-theme] .composer-overlay .composer-tool .icon:not(#_) { width: 15px; height: 15px; }
+html[data-theme] .composer-overlay .composer-tool-label:not(#_) { display: inline; font-size: 11.5px; white-space: nowrap; }
+
+html[data-theme] .composer-overlay .composer-foot:not(#_) { display: flex; gap: 8px; margin-top: 10px; padding: 10px 14px calc(10px + env(safe-area-inset-bottom, 0px)); justify-content: stretch; }
+html[data-theme] .composer-overlay .composer-foot .btn:not(#_) { flex: 1 1 0; width: auto !important; min-width: 0 !important; height: 38px !important; min-height: 38px !important; margin: 0 !important; padding: 0 12px !important; font-size: 13px !important; font-weight: 700; border-radius: 10px; justify-content: center; }
+html[data-theme] .composer-overlay .composer-foot .composer-cancel:not(#_) { flex: 0 0 34%; }
+html[data-theme] .composer-overlay .composer-foot .composer-post:not(#_) { flex: 1 1 0; }
+
+/* ---- Composer, slimmer fields so Create event / Create post fit with room to spare (phones only) ---- */
+html[data-theme] .composer-overlay .composer .composer-title:not(#_) { height: 36px !important; min-height: 36px !important; padding: 0 10px !important; font-size: .92rem !important; border-radius: 9px !important; }
+html[data-theme] .composer-overlay .composer .composer-text:not(#_) { min-height: 64px !important; height: 64px; padding: 8px 10px !important; font-size: .86rem !important; line-height: 1.4; border-radius: 9px !important; }
+html[data-theme] .composer-overlay .composer-details:not(#_), html[data-theme] .composer-overlay .composer-section:not(#_) { margin-top: 8px; padding: 8px 10px; gap: 7px; border-radius: 11px; }
+html[data-theme] .composer-overlay .composer-details input:not([type="checkbox"]):not(#_), html[data-theme] .composer-overlay .composer-section input:not([type="checkbox"]):not(#_) { min-height: 32px !important; height: 32px !important; padding: 0 8px !important; font-size: 12.5px !important; border-radius: 8px !important; }
+html[data-theme] .composer-overlay .composer-details label:not(#_), html[data-theme] .composer-overlay .composer-section label:not(#_) { font-size: .64rem !important; margin: 0 0 2px !important; }
+html[data-theme] .composer-overlay .composer-details small:not(#_), html[data-theme] .composer-overlay .composer-section .muted:not(#_), html[data-theme] .composer-overlay .composer-section p:not(#_) { font-size: .62rem !important; line-height: 1.35; margin-top: 3px !important; }
+html[data-theme] .composer-overlay .composer-section .check-row:not(#_) { font-size: .74rem; margin-top: 6px !important; }
+html[data-theme] .composer-overlay .composer-section .check-row input:not(#_) { width: 15px; height: 15px !important; min-height: 0 !important; }
+html[data-theme] .composer-overlay .composer-grid:not(#_) { gap: 7px; }
+
+/* "Add to your post": one tidy row that scrolls sideways instead of stacking */
+html[data-theme] .composer-overlay .composer-add:not(#_) { margin: 6px 0 0; gap: 4px; }
+html[data-theme] .composer-overlay .composer-add-title:not(#_) { padding: 0 14px; font-size: .6rem; }
+html[data-theme] .composer-overlay .composer-tools:not(#_) { flex-wrap: nowrap; overflow-x: auto; padding: 0 14px 2px; scrollbar-width: none; -webkit-overflow-scrolling: touch; }
+html[data-theme] .composer-overlay .composer-tools:not(#_)::-webkit-scrollbar { display: none; }
+html[data-theme] .composer-overlay .composer-tool:not(#_) { flex: none; height: 28px; font-size: 11px; padding: 0 9px 0 7px; }
+html[data-theme] .composer-overlay .composer-tool-label:not(#_) { font-size: 11px; }
+html[data-theme] .composer-overlay .composer-foot:not(#_) { margin-top: 6px; padding-top: 8px; }
+
+/* =====================================================================
+   COMPOSER POSITION FIX (Create post / Create event / edit), phones only.
+   The sheet used to sit flush with the bottom of the screen, so the browser /
+   phone bottom bar covered the tools row and the Cancel + Post buttons.
+   Now it is centred in the visible area (a gap is reserved at the bottom for the bar) and shrinks to fit; only the
+   middle part scrolls, the footer is always visible.
+   ===================================================================== */
+html[data-theme] .composer-overlay:not(#_) {
+    --cmp-gap: calc(env(safe-area-inset-bottom, 0px) + 84px);
+    top: var(--cmp-top, 0px); bottom: auto; left: 0; right: 0;
+    height: var(--cmp-vh, 100dvh);
+    padding: 12px 10px var(--cmp-gap);
+    align-items: center; justify-content: center;
+    box-sizing: border-box;
+}
+html[data-theme] .composer-overlay .composer:not(#_) {
+    width: 100%; max-width: none; margin: 0;
+    height: auto;
+    max-height: 100%;
+    border-radius: 16px;
+}
+html[data-theme] .composer-overlay .composer-form:not(#_) { min-height: 0; flex: 1 1 auto; display: flex; flex-direction: column; }
+html[data-theme] .composer-overlay .composer-scroll:not(#_) { flex: 1 1 auto; min-height: 0; overflow-y: auto; -webkit-overflow-scrolling: touch; }
+html[data-theme] .composer-overlay .composer-add:not(#_),
+html[data-theme] .composer-overlay .composer-foot:not(#_),
+html[data-theme] .composer-overlay .composer-head:not(#_) { flex: none; }
+html[data-theme] .composer-overlay .composer-foot:not(#_) { padding-bottom: 12px; background: var(--ui-surface, #fff); }
+
+/* =====================================================================
+   KEEP THE FOOTER ABOVE THE PHONE'S BOTTOM BAR (phones only)
+   The browser's own bottom bar (it slides in and out while you scroll) used to
+   cover the last part of the footer / last cards. --m-bar-gap is the extra room
+   kept clear above the bottom tab bar: a bigger number lifts the footer higher.
+   Public pages (Calendar, Events...): the footer itself gets the extra room, with
+   its own background, so it reads as a taller footer and not as an empty gap.
+   Dashboard pages (Manage Events, Announcements...): the content gets the room.
+   ===================================================================== */
+html[data-theme] { --m-bar-gap: 44px; }
+html[data-theme] .site-footer.footer-pro:not(#_) { padding-bottom: var(--m-bar-gap) !important; }
+html[data-theme] body.has-dashboard:not(#_) .app-main-inner { padding-bottom: calc(20px + var(--m-bar-gap)); }
+
+/* =====================================================================
+   MANAGE MEMBERS: compact, clean list (phones only)
+   One flat list with hairline dividers instead of a stack of tall cards.
+   Each member = name row (Edit and the ... menu sit top-right), then Role and
+   Status side by side, then Position as one small line (hidden when empty).
+   Pending sign-ups get full-width Approve / Decline buttons.
+   Styling only: the PHP markup and forms are unchanged.
+   ===================================================================== */
+
+/* toolbar: three small buttons in one row, Add Member as a slim bar below */
+html[data-theme] .page-head:has(.print-btn) > div[style*="display:flex"]:not(#_) { display: flex !important; flex-wrap: wrap; gap: 6px !important; margin-top: 8px; }
+html[data-theme] .page-head:has(.print-btn) .btn-sm:not(#_) { flex: 1 1 0; min-width: 0; height: 30px !important; min-height: 30px !important; padding: 0 8px !important; font-size: 11.5px !important; font-weight: 600; border-radius: 8px; justify-content: center; white-space: nowrap; }
+html[data-theme] .page-head:has(.print-btn) .btn-sm .icon:not(#_) { width: 13px; height: 13px; margin-right: 4px; }
+html[data-theme] .page-head:has(.print-btn) .btn-primary:not(#_) { flex: 1 1 100%; height: 36px !important; min-height: 36px !important; padding: 0 12px !important; font-size: 12.5px !important; font-weight: 700; border-radius: 9px; }
+
+/* filter pills + search */
+html[data-theme] .mm-bar:not(#_) { padding: 0 0 6px; }
+html[data-theme] .mm-pills:not(#_) { gap: 4px; margin: 0 0 8px; padding-bottom: 2px; }
+html[data-theme] .mm-pill:not(#_) { padding: 3px 9px; font-size: 11px; font-weight: 600; }
+html[data-theme] .mm-search:not(#_) { grid-template-columns: minmax(0, 1fr) auto; gap: 6px; }
+html[data-theme] .mm-search input[type="search"]:not(#_) { height: 34px !important; min-height: 34px !important; font-size: 13px !important; border-radius: 9px; }
+html[data-theme] .mm-search select:not(#_) { grid-column: 1; height: 32px !important; min-height: 32px !important; font-size: 12px !important; border-radius: 9px; }
+html[data-theme] .mm-search .btn:not(#_) { grid-column: 2; height: 32px !important; min-height: 32px !important; padding: 0 16px !important; font-size: 12px !important; border-radius: 9px; }
+
+/* the list */
+html[data-theme] .mm-list:not(#_) { display: block; margin: 0; padding: 0; background: var(--m-card, var(--ui-surface, #fff)); border-radius: 14px; }
+html[data-theme] .mm-row:not(#_) {
+    position: relative; display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 6px 8px; align-items: start;
+    padding: 10px 12px 11px; background: transparent !important; box-shadow: none !important; border-radius: 0;
+    border: 0; border-bottom: 1px solid var(--ui-border, rgba(127, 140, 132, .22));
+}
+html[data-theme] .mm-row:last-child:not(#_) { border-bottom: 0; }
+html[data-theme] .mm-row:hover:not(#_) { background: transparent !important; }
+
+/* name row */
+html[data-theme] .mm-row > .mm-who:not(#_) { grid-column: 1 / -1; grid-row: 1; gap: 9px; min-height: 32px; padding-right: 92px; align-items: center; }
+html[data-theme] .mm-ava:not(#_) { width: 32px; height: 32px; font-size: .7rem; }
+html[data-theme] .mm-who-text:not(#_) { gap: 1px; }
+html[data-theme] .mm-name:not(#_) { font-size: .84rem; font-weight: 700; line-height: 1.25; }
+html[data-theme] .mm-sub:not(#_) { font-size: .66rem; line-height: 1.3; }
+
+/* Role + Status side by side */
+html[data-theme] .mm-row > .mm-cell[data-label="Role"]:not(#_) { grid-column: 1; grid-row: 2; min-width: 0; }
+html[data-theme] .mm-row > .mm-cell[data-label="Status"]:not(#_) { grid-column: 2; grid-row: 2; min-width: 0; }
+html[data-theme] .mm-cell[data-label]:not(#_)::before { font-size: .56rem; font-weight: 700; letter-spacing: .07em; margin-bottom: 2px; color: var(--ui-muted, #59685e); }
+html[data-theme] .mm-select:not(#_) { height: 30px !important; min-height: 30px !important; font-size: 12px !important; font-weight: 600; padding: 0 22px 0 10px !important; border-radius: 8px; }
+html[data-theme] .mm-cell .badge:not(#_) { font-size: .66rem; padding: 3px 9px; }
+
+/* Position: one small line, hidden when there is none */
+html[data-theme] .mm-row > .mm-pos:not(#_) { grid-column: 1 / -1; grid-row: 3; font-size: .7rem; line-height: 1.3; }
+html[data-theme] .mm-pos.mm-cell[data-label]:not(#_)::before { display: inline; margin: 0 6px 0 0; }
+html[data-theme] .mm-row > .mm-pos:has(.mm-none):not(#_) { display: none; }
+
+/* actions: Edit + the ... menu float top-right of the name row */
+html[data-theme] .mm-actions:not(#_) { display: contents; }
+html[data-theme] .mm-actions > a.btn:not(#_) { position: absolute; top: 10px; right: 46px; width: auto !important; height: 28px !important; min-height: 28px !important; padding: 0 12px !important; font-size: 11px !important; font-weight: 600; border-radius: 8px; }
+html[data-theme] .mm-actions > a.btn:last-child:not(#_) { right: 12px; }
+html[data-theme] .mm-actions > .mm-menu:not(#_) { position: absolute; top: 10px; right: 12px; }
+html[data-theme] .mm-menu summary:not(#_) { width: 28px; height: 28px; font-size: 1rem; border-radius: 8px; }
+html[data-theme] .mm-pop:not(#_) { width: min(240px, calc(100vw - 40px)); }
+
+/* pending sign-ups: Approve / Decline full width on their own row */
+html[data-theme] .mm-actions > form:not(#_) { grid-row: 4; margin: 0; min-width: 0; }
+html[data-theme] .mm-actions > form:nth-of-type(1):not(#_) { grid-column: 1; }
+html[data-theme] .mm-actions > form:nth-of-type(2):not(#_) { grid-column: 2; }
+html[data-theme] .mm-actions > form .btn:not(#_) { width: 100% !important; height: 32px !important; min-height: 32px !important; padding: 0 10px !important; font-size: 11.5px !important; font-weight: 700; border-radius: 8px; justify-content: center; }
+html[data-theme] .mm-who > input[type="checkbox"]:not(#_) { flex: none; width: 16px !important; height: 16px !important; min-width: 0 !important; min-height: 0 !important; margin: 0 -1px 0 0; padding: 0; }
+html[data-theme] .mm-sub .badge:not(#_) { font-size: .58rem; padding: 1px 7px; margin-right: 4px; line-height: 1.5; }
+
+/* =====================================================================
+   SIDE MENU (drawer): slim panel on phones
+   About 58% of the screen wide instead of 92%, so the page stays visible
+   beside it. Everything inside is sized down so it fits with no overflow:
+   profile header, links, badges, Settings and Log Out.
+   ===================================================================== */
+html[data-theme] .drawer:not(#_) { width: clamp(200px, 58vw, 264px); max-width: 100vw; border-radius: 16px 0 0 16px; overflow: hidden; }
+
+/* profile header */
+html[data-theme] .drawer-head:not(#_) { padding: 12px 12px 10px; border-radius: 16px 0 0 0; }
+html[data-theme] .drawer-profile:not(#_) { margin: 0; padding: 4px 34px 4px 4px; }
+html[data-theme] .drawer-account:not(#_) { gap: 9px; align-items: center; min-width: 0; }
+html[data-theme] .drawer-account > div:not(#_) { min-width: 0; }
+html[data-theme] .drawer-account strong:not(#_) { font-size: .8rem; line-height: 1.25; overflow-wrap: anywhere; letter-spacing: -.01em; }
+html[data-theme] .drawer-account .avatar-chip-lg:not(#_) { width: 34px !important; height: 34px !important; font-size: .74rem; flex: none; }
+html[data-theme] .drawer-sub:not(#_) { font-size: .66rem; margin-top: 1px; }
+html[data-theme] .drawer-role:not(#_), html[data-theme] .drawer-profile .drawer-role:not(#_) { font-size: .62rem; padding: 1px 8px; margin-top: 3px; }
+html[data-theme] .drawer-close:not(#_) { position: absolute; top: 12px; right: 10px; width: 28px !important; height: 28px !important; min-width: 0 !important; min-height: 0 !important; padding: 0; display: grid; place-items: center; border-radius: 8px; }
+html[data-theme] .drawer-close .icon:not(#_) { width: 14px; height: 14px; }
+
+/* links */
+html[data-theme] .drawer-body:not(#_) { padding: 6px 8px 10px; overflow-x: hidden; }
+html[data-theme] .drawer .drawer-link:not(#_) { min-height: 38px !important; padding: 6px 8px; gap: 9px; font-size: 12.5px; line-height: 1.25; border-radius: 8px; }
+html[data-theme] .drawer .drawer-link .icon:not(#_) { width: 17px; height: 17px; flex: none; }
+html[data-theme] .drawer .drawer-link > span:not(.badge):not(#_) { min-width: 0; overflow-wrap: anywhere; }
+html[data-theme] .drawer .drawer-link .badge:not(#_) { flex: none; min-width: 18px; height: 18px; padding: 0 5px; font-size: .62rem; display: grid; place-items: center; border-radius: 9px; }
+html[data-theme] .drawer-heading:not(#_) { font-size: .6rem; margin: 12px 8px 4px; }
+
+/* settings */
+html[data-theme] .drawer .settings-link .chevron:not(#_) { width: 14px; height: 14px; }
+html[data-theme] .drawer .setting-block:not(#_) { padding: 8px 8px 6px; margin: 0; min-width: 0; }
+html[data-theme] .drawer .setting-label:not(#_) { font-size: .66rem; gap: 6px; margin: 0 0 6px; }
+html[data-theme] .drawer .setting-label .icon:not(#_) { width: 14px; height: 14px; }
+html[data-theme] .drawer .setting-inline:not(#_) { flex-wrap: wrap; gap: 6px; }
+html[data-theme] .drawer .seg:not(#_) { width: 100%; min-width: 0; }
+html[data-theme] .drawer .seg-btn:not(#_) { min-width: 0 !important; min-height: 28px !important; padding: 0 4px; font-size: 10.5px !important; gap: 0; justify-content: center; }
+html[data-theme] .drawer .seg-btn .icon:not(#_) { display: none; }
+html[data-theme] .drawer .swatch:not(#_) { width: 24px; height: 24px; min-width: 0; min-height: 0; }
+html[data-theme] .drawer .setting-row:not(#_) { padding: 7px 8px; gap: 8px; font-size: 11.5px; min-height: 0; min-width: 0; }
+html[data-theme] .drawer .setting-row .icon:not(#_) { width: 15px; height: 15px; flex: none; }
+html[data-theme] .drawer .setting-row small:not(#_) { font-size: .58rem; line-height: 1.25; }
+html[data-theme] .drawer .setting-row > span:not(.switch):not(#_) { min-width: 0; overflow-wrap: anywhere; }
+html[data-theme] .drawer .switch:not(#_) { flex: none; transform: scale(.82); transform-origin: right center; }
+
+/* log out */
+html[data-theme] .drawer .drawer-link-danger:not(#_) { margin-top: 10px; justify-content: center; font-size: 12.5px; }
+html[data-theme] .drawer-profile:not(#_), html[data-theme] .drawer-account > div:not(#_), html[data-theme] .drawer-account strong:not(#_) { white-space: normal !important; overflow: visible; text-overflow: clip; max-width: 100%; }
+html[data-theme] .drawer .settings-collapse-inner:not(#_) { margin: 2px 0 6px 6px; padding: 2px 0 2px 8px; }
+html[data-theme] .drawer .setting-block:not(#_) { padding: 0; }
+html[data-theme] .drawer .setting-list .setting-row:not(#_) { padding: 7px 4px; }
+html[data-theme] .drawer .seg-btn:not(#_) { padding: 0 2px; }
+html[data-theme] .drawer-profile.drawer-account:not(#_) { padding: 4px 38px 4px 4px; }
+html[data-theme] .drawer .setting-block + .setting-block:not(#_) { margin-top: 12px; }
